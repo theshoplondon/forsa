@@ -16,6 +16,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
