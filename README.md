@@ -1,5 +1,7 @@
 # README
 
+[![rgarner](https://circleci.com/gh/rgarner/forsa.svg?style=svg)](https://app.circleci.com/pipelines/github/rgarner/forsa)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
