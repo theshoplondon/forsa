@@ -31,5 +31,8 @@ jobs:
           command: bundle -v
       - ruby/load-cache
       - ruby/install-deps
+      - run:
+          name: Build assets
+          command: bundle exec rails assets:precompile
       - ruby/save-cache
       - ruby/run-tests
