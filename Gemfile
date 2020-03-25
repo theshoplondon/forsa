@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
 end
