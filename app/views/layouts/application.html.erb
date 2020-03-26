@@ -6,14 +6,23 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_pack_tag "application", 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track' => 'reload' %>
   </head>
 
   <body>
-
-    <%= yield %>
-
+    <div class="grid-container">
+      <header class="grid-x grid-margin-x">
+        <div class="cell medium-6 large-4">
+          <%= image_tag 'forsa_logo.svg', class: 'logo' %>
+        </div>
+      </header>
+      <article class="grid-x content">
+        <%= yield %>
+      </article>
+    </div>
   </body>
 </html>

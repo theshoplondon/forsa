@@ -6,6 +6,6 @@ require 'rails_helper'
 feature 'A new member joins' do
   scenario 'everything goes to plan' do
     visit '/'
-    expect(page).to have_content('Hello')
+    expect(page).to have_content('Join Today')
   end
 end
