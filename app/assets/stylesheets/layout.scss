@@ -15,3 +15,22 @@ header {
     .logo { height: 170px; }
   }
 }
+
+footer {
+  color: $white;
+
+  padding: 1rem;
+
+  background-image: asset-url('footer-bg.svg');
+  background-size: cover;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    text-align: right;
+  }
+
+  a {
+    color: $white;
+  }
+}

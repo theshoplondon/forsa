@@ -15,14 +15,25 @@
 
   <body>
     <div class="grid-container">
-      <header class="grid-x grid-margin-x">
+      <header class="grid-x">
         <div class="cell">
           <%= image_tag 'forsa_logo.svg', class: 'logo' %>
         </div>
       </header>
-      <article class="grid-x content">
-        <%= yield %>
-      </article>
+
+      <div class="grid-x">
+        <article class="cell content">
+          <%= yield %>
+        </article>
+      </div>
+
+      <footer class="grid-x">
+        <ul class="cell">
+          <li><%= link_to 'How we use your data', '#' %></li>
+          <li><%= link_to 'Privacy policy', '#' %></li>
+          <li>©2020 Forsa. All rights reserved.</li>
+        </ul>
+      </footer>
     </div>
   </body>
 </html>
