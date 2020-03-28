@@ -19,18 +19,20 @@
 
   <body>
     <div class="grid-container">
-      <header class="grid-x">
-        <div class="cell">
+      <header class="grid-x align-center">
+        <div class="cell medium-8 large-8">
           <%= image_tag 'forsa_logo.svg', class: 'logo' %>
         </div>
       </header>
 
-      <div class="grid-x">
-        <article class="cell content">
+      <div class="grid-x align-center">
+        <article class="cell medium-8 large-8 content">
           <%= yield %>
         </article>
       </div>
+    </div>
 
+    <div class="grid-container-fluid">
       <footer class="grid-x">
         <ul class="cell">
           <li><%= link_to 'How we use your data', '#' %></li>
