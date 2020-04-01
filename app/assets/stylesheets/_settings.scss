@@ -62,6 +62,7 @@
 
 @import 'util/util';
 @import 'color';
+@import 'typography';
 
 // 1. Global
 // ---------
@@ -74,7 +75,7 @@ $foundation-palette: (
   secondary: $forsa-aqua,
   success: #3adb76,
   warning: #ffae00,
-  alert: #cc4b37,
+  alert: #d34d5b,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -91,6 +92,7 @@ $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
+$global-forms-radius: 4px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -341,7 +343,7 @@ $callout-sizes: (
 );
 $callout-font-color: $body-background;
 $callout-font-color-alt: $body-background;
-$callout-radius: $global-radius;
+$callout-radius: 3px;
 $callout-link-tint: 30%;
 
 // 14. Card
@@ -445,7 +447,7 @@ $input-prefix-background: $light-gray;
 $input-prefix-border: 1px solid $medium-gray;
 $input-prefix-padding: 1rem;
 $form-label-color: $black;
-$form-label-font-size: rem-calc(14);
+$form-label-font-size: rem-calc(15);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
@@ -468,8 +470,8 @@ $input-shadow-focus: 0 0 5px $medium-gray;
 $input-cursor-disabled: not-allowed;
 $input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 $input-number-spinners: true;
-$input-radius: $global-radius;
-$form-button-radius: $global-radius;
+$input-radius: $global-forms-radius;
+$form-button-radius: $global-forms-radius;
 
 // 21. Label
 // ---------

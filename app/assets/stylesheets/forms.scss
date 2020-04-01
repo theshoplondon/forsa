@@ -1,0 +1,31 @@
+@import 'settings';
+
+.content fieldset {
+  margin-bottom: $fieldset-padding;
+}
+
+label {
+  font-family: $body-font-family-bold;
+}
+
+input {
+  border-radius: 4px;
+
+  &[type=submit], &[type=button] {
+    border: 0;
+    background-color: $forsa-red;
+    color: $white;
+    font-family: $body-font-family-bold;
+    font-weight: bold;
+    padding: $button-padding
+  }
+}
+
+.field_with_errors {
+  input,
+  textarea,
+  label.block-label {
+    border-color: $alert-color;
+    background-color: #f9ecea;
+  }
+}

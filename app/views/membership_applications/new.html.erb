@@ -1,0 +1,50 @@
+<section class="callout">
+  <h1>Join Today</h1>
+  <p>
+    <strong>
+      We're Ireland's largest public sector union – over 80,000-strong and growing.
+    </strong>
+  </p>
+  <p>
+    We win better pay and conditions for members in health, education, local and central government.
+  </p>
+  <p>
+    Most members pay less than €5 per week, deducted automatically from their salary.
+  </p>
+</section>
+
+<section>
+  <h2>Get started</h2>
+  <p class="side-note">We'll use this information to contact you about your membership.</p>
+
+  <%= form_for(@membership_application) do |f| %>
+    <fieldset>
+      <div class="cell">
+        <%= f.label :first_name %>
+        <%= form_field_errors f, :first_name %>
+        <%= f.text_field :first_name, placeholder: true %>
+      </div>
+
+      <div class="cell">
+        <%= f.label :email %>
+        <%= form_field_errors f, :email %>
+        <%= f.text_field :email, placeholder: true %>
+      </div>
+
+      <section class="callout callout-secondary">
+        <h3>A note about help with existing problems at work</h3>
+        <p>Fórsa helps our members. Unfortunately, we are unlikely to be able to help
+          with problems that occurred at work before you became a member.</p>
+
+        <p><strong>
+          If you have any questions about this, please <%= link_to 'Email us', 'mailto:membership@forsa.ie' %> or
+          call us on <%= link_to '01 817 1500', 'tel:01 817 1500' %>
+        </strong></p>
+      </section>
+
+      <div class="cell">
+        <%= f.submit 'Get started' %>
+      </div>
+    </fieldset>
+  <% end %>
+</section>

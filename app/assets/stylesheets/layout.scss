@@ -16,10 +16,20 @@ header {
   }
 }
 
-footer {
-  color: $white;
+.side-note {
+  color: $dark-gray;
+}
 
-  padding: 1rem;
+.callout-secondary {
+  background-color: $light-gray;
+  color: $black;
+}
+
+footer {
+  width: 100%;
+  color: $white;
+  min-height: 12em;
+  padding: $global-padding;
 
   background-image: asset-url('footer-bg.svg');
   background-size: cover;

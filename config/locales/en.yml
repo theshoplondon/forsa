@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    label:
+      membership_application:
+        email: "Email address"
+    placeholder:
+      membership_application:
+        email: "natalie@example.com"
+        first_name: 'Natalie'
