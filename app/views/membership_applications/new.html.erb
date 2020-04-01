@@ -17,7 +17,7 @@
   <h2>Get started</h2>
   <p class="side-note">We'll use this information to contact you about your membership.</p>
 
-  <%= form_for(@membership_application) do |f| %>
+  <%= form_for(@membership_application, url: membership_application_path) do |f| %>
     <fieldset>
       <div class="cell">
         <%= f.label :first_name %>

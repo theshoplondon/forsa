@@ -1,0 +1,25 @@
+<p>Step 1 of 4</p>
+
+<h1>About you</h1>
+
+<%= form_for @membership_application, url: wizard_path do |f| %>
+  <fieldset>
+    <%= f.label :title %>
+    <%= form_field_errors f, :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :first_name %>
+    <%= form_field_errors f, :first_name %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %>
+    <%= form_field_errors f, :last_name %>
+    <%= f.text_field :last_name %>
+
+    <%= f.label :date_of_birth %>
+    <%= form_field_errors f, :date_of_birth %>
+    <%= f.text_field :date_of_birth %>
+
+    <%= f.submit 'Next' %>
+  </fieldset>
+<% end %>
