@@ -1,8 +1,5 @@
 {
   "name": "forsa",
-  "scripts": {
-    "postdeploy": "bundle exec rails db:migrate"
-  },
   "env": {
     "DATABASE_URL": {
       "required": true
