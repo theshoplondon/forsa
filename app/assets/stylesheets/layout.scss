@@ -16,6 +16,15 @@ header {
   }
 }
 
+.side-note {
+  color: $dark-gray;
+}
+
+.callout-secondary {
+  background-color: $light-gray;
+  color: $black;
+}
+
 footer {
   width: 100%;
   color: $white;
