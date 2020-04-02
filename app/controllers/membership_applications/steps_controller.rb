@@ -5,7 +5,7 @@ module MembershipApplications
   class StepsController < ApplicationController
     include Wicked::Wizard
 
-    steps :about_you
+    steps 'about-you'
 
     def show
       @membership_application = current_membership_application

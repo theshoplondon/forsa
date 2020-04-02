@@ -7,7 +7,7 @@ class MembershipApplicationsController < ApplicationController
 
     if @membership_application.save
       session[:membership_application_id] = @membership_application.to_param
-      redirect_to membership_application_step_path(:about_you)
+      redirect_to membership_application_step_path('about-you')
     else
       render :new
     end
