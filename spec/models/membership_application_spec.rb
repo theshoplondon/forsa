@@ -29,4 +29,41 @@ RSpec.describe MembershipApplication do
       end
     end
   end
+
+  context 'the current_step is the third step, contact-details' do
+    context 'and some of the details from the previous step are removed' do
+      let(:params) do
+        { current_step: 'contact-details', first_name: 'Natalie', email: 'n.example.com' }
+      end
+
+      it 'still validates the previous step along with the current step' do
+        aggregate_failures do
+          expect(application).not_to be_valid
+
+          expect(application.errors[:last_name]).to eql ["can't be blank"]
+          expect(application.errors[:date_of_birth]).to eql ["can't be blank"]
+          expect(application.errors[:phone_number]).to eql ["can't be blank"]
+        end
+      end
+    end
+
+    context 'and some of the details from the current step are not filled in' do
+      let(:params) do
+        {
+          current_step: 'contact-details',
+          first_name: 'Natalie',
+          email: 'n.example.com',
+          title: 'Ms'
+        }
+      end
+
+      it 'is not valid' do
+        aggregate_failures do
+          expect(application).not_to be_valid
+
+          expect(application.errors[:last_name]).to eql ["can't be blank"]
+        end
+      end
+    end
+  end
 end

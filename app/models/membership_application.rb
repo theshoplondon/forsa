@@ -9,7 +9,9 @@ class MembershipApplication < ApplicationRecord
   validates :last_name, presence: true, if: -> { reached_step?('about-you') }
   validates :date_of_birth, presence: true, if: -> { reached_step?('about-you') }
 
-  def reached_step?(_step)
-    current_step == 'about-you'
+  validates :phone_number, presence: true, if: -> { reached_step?('contact-details') }
+
+  def reached_step?(step)
+    Steps.instance.reached_step?(self.current_step, step)
   end
 end

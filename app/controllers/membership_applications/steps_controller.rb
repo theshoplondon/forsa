@@ -5,7 +5,7 @@ module MembershipApplications
   class StepsController < ApplicationController
     include Wicked::Wizard
 
-    steps 'about-you'
+    steps *MembershipApplication::Steps.instance.step_names
 
     def show
       @membership_application = current_membership_application
@@ -31,8 +31,7 @@ module MembershipApplications
     end
 
     def step_params
-      params.require(:membership_application)
-        .permit(:first_name, :last_name, :email, :date_of_birth)
+      params.require(:membership_application).permit(MembershipApplication::Steps::PARAMS.fetch(step))
     end
   end
 end
