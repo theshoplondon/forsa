@@ -14,6 +14,7 @@ module MembershipApplications
 
     def update
       @membership_application = current_membership_application
+      @membership_application.current_step = step unless @membership_application.reached_step?(step)
       @membership_application.assign_attributes(step_params)
 
       render_wizard(@membership_application)
