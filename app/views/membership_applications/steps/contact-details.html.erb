@@ -1,0 +1,17 @@
+<p>Step 2 of 4</p>
+
+<h1>Contact details</h1>
+
+<%= form_for @membership_application, url: wizard_path do |f| %>
+  <fieldset>
+    <%= f.label :email %>
+    <%= form_field_errors f, :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :phone_number %>
+    <%= form_field_errors f, :phone_number %>
+    <%= f.text_field :phone_number %>
+
+    <%= f.submit 'Next' %>
+  </fieldset>
+<% end %>
