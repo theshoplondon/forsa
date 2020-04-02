@@ -1,6 +1,4 @@
-<p>Step 1 of 4</p>
-
-<h1>About you</h1>
+<%= render 'step_title', title: 'About you', step: 1, of: 4 %>
 
 <%= form_for @membership_application, url: wizard_path do |f| %>
   <fieldset>
