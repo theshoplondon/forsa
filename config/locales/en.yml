@@ -35,6 +35,11 @@ en:
     label:
       membership_application:
         email: "Email address"
+        job_title: 'Your job title'
+        employer: 'Your employer'
+        work_address: 'Your work place'
+        payroll_number: 'Your payroll number'
+        pay_rate: 'What are you paid?'
     placeholder:
       membership_application:
         email: "natalie@example.com"

@@ -30,7 +30,7 @@ RSpec.describe MembershipApplication do
     end
   end
 
-  context 'the current_step is the third step, contact-details' do
+  context 'the current_step is the second step, contact-details' do
     context 'and some of the details from the previous step are removed' do
       let(:params) do
         { current_step: 'contact-details', first_name: 'Natalie', email: 'n.example.com' }

@@ -41,6 +41,22 @@ feature 'A new member joins' do
 
     click_button 'Next'
 
+    # And I fill in work and pay details
+    fill_in 'Your job title', with: 'User Researcher'
+    fill_in 'Your employer', with: 'Office of Public Works'
+    fill_in 'Your work place', with: <<~TXT
+      Head Office
+      Jonathan Swift Street
+      Trim
+      C15 NX36
+    TXT
+    fill_in 'Your payroll number', with: 'OE1234567'
+    fill_in 'What are you paid?', with: '29,250'
+
+    choose 'membership_application_pay_unit_year'
+
+    click_button 'Next'
+
     # Then I see a temporary finishing page
     expect(page).to have_content 'Hi there, this is the end'
 
@@ -48,6 +64,8 @@ feature 'A new member joins' do
     membership_application = MembershipApplication.last
     expect(membership_application.last_name).to eql('Memberapplication')
     expect(membership_application.date_of_birth).to eql(Date.new(1975, 5, 25))
+    expect(membership_application.pay_unit).to eql('year')
+    expect(membership_application.pay_rate).to eql(BigDecimal(29250))
   end
 
   scenario 'one step fails validation' do
