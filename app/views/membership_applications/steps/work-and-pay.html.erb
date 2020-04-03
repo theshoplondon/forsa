@@ -1,0 +1,32 @@
+<%= render 'step_title', title: 'Your work and pay', step: 3, of: 4 %>
+
+<%= form_for @membership_application, url: wizard_path do |f| %>
+  <fieldset>
+    <%= f.label :job_title %>
+    <%= form_field_errors f, :job_title %>
+    <%= f.text_field :job_title %>
+
+    <%= f.label :employer %>
+    <%= form_field_errors f, :employer %>
+    <%= f.text_field :employer %>
+
+    <%= f.label :work_address %>
+    <%= form_field_errors f, :work_address %>
+    <%= f.text_area :work_address, rows: 5 %>
+
+    <%= f.label :payroll_number %>
+    <%= form_field_errors f, :payroll_number %>
+    <%= f.text_field :payroll_number %>
+
+    <%= f.label :pay_rate %>
+    <%= form_field_errors f, :pay_rate %>
+    <%= f.text_field :pay_rate %>
+
+    <fieldset>
+      <label class="side-note">Every:</label>
+      <%= f.collection_radio_buttons :pay_unit, MembershipApplication::PAY_UNIT, :to_s, :capitalize %>
+    </fieldset>
+
+    <%= f.submit 'Next' %>
+  </fieldset>
+<% end %>
