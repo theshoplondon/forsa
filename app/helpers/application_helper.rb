@@ -8,4 +8,8 @@ module ApplicationHelper
       end.join.html_safe
     end
   end
+
+  def help_text(field)
+    content_tag :p, I18n.t("helpers.help_text.membership_application.#{field}"), class: 'help-text'
+  end
 end

@@ -44,3 +44,8 @@ en:
       membership_application:
         email: "natalie@example.com"
         first_name: 'Natalie'
+        payroll_number: 'E.g. 12457843'
+    help_text:
+      membership_application:
+        pay_rate: 'If the amount varies, use an average.'
+        payroll_number: 'Found on your payslip (why do we need this?)'
