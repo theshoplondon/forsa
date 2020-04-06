@@ -40,6 +40,7 @@ en:
         work_address: 'Your work place'
         payroll_number: 'Your payroll number'
         pay_rate: 'What are you paid?'
+        declaration: 'Sign your application by typing your name'
     placeholder:
       membership_application:
         email: "natalie@example.com"
@@ -50,6 +51,7 @@ en:
         email: 'A personal email is better'
         pay_rate: 'If the amount varies, use an average.'
         payroll_number: 'Found on your payslip'
+        declaration: 'This must be "%{full_name}"'
     help_dropdown:
       membership_application:
         email:

@@ -9,7 +9,7 @@ module ApplicationHelper
     end
   end
 
-  def help_for(field)
-    render 'shared/help_for_field', field: field
+  def help_for(field, interpolations = {})
+    render 'shared/help_for_field', field: field, interpolations: interpolations
   end
 end

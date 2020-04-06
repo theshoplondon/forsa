@@ -57,6 +57,11 @@ feature 'A new member joins' do
 
     click_button 'Next'
 
+    # And I fill in my declaration
+    fill_in 'Sign your application by typing your name', with: 'Mick Memberapplication'
+
+    click_button 'Finish'
+
     # Then I see a temporary finishing page
     expect(page).to have_content 'Hi there, this is the end'
 
