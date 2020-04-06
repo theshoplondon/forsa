@@ -63,14 +63,15 @@ feature 'A new member joins' do
     click_button 'Finish'
 
     # Then I see a temporary finishing page
-    expect(page).to have_content 'Hi there, this is the end'
+    expect(page).to have_content 'Application complete'
 
-    # And we've captured Stuff
+    # And we've captured what we needed to
     membership_application = MembershipApplication.last
     expect(membership_application.last_name).to eql('Memberapplication')
     expect(membership_application.date_of_birth).to eql(Date.new(1975, 5, 25))
     expect(membership_application.pay_unit).to eql('year')
     expect(membership_application.pay_rate).to eql(BigDecimal(29250))
+    expect(membership_application.current_step).to eql('declaration')
   end
 
   scenario 'one step fails validation' do
