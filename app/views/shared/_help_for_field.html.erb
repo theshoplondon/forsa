@@ -1,0 +1,13 @@
+<p class="help-text">
+  <%= t("helpers.help_text.membership_application.#{field}") %>
+
+  <% if I18n.exists?("helpers.help_dropdown.membership_application.#{field}") %>
+    <a data-toggle="<%= field %>-help-dropdown">
+      <%= I18n.t("helpers.help_dropdown.membership_application.#{field}.link") %>
+    </a>
+
+    <div id="<%= field %>-help-dropdown" class="dropdown-pane" data-dropdown>
+      <%= I18n.t("helpers.help_dropdown.membership_application.#{field}.content") %>
+    </div>
+  <% end %>
+</p>

@@ -47,5 +47,18 @@ en:
         payroll_number: 'E.g. 12457843'
     help_text:
       membership_application:
+        email: 'A personal email is better'
         pay_rate: 'If the amount varies, use an average.'
-        payroll_number: 'Found on your payslip (why do we need this?)'
+        payroll_number: 'Found on your payslip'
+    help_dropdown:
+      membership_application:
+        email:
+          link: '(why?)'
+          content:
+            We want to be able to communicate with you effectively, inside and outside of your workplace.
+            Some employers use filters to block union emails, or you might change jobs in the future,
+            so you may not receive our emails if you use your work email.
+        payroll_number:
+          link: '(why do we need this?)'
+          content:
+            We need to arrange with your employer to deduct your membership payment from source.

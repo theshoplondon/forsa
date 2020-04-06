@@ -28,6 +28,8 @@
       <div class="cell">
         <%= f.label :email %>
         <%= form_field_errors f, :email %>
+        <%= render 'shared/help_for_field', field: 'email' %>
+        <%#= help_text_with_dropdown :email %>
         <%= f.text_field :email, placeholder: true %>
       </div>
 

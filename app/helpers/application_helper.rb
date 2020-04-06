@@ -9,7 +9,7 @@ module ApplicationHelper
     end
   end
 
-  def help_text(field)
-    content_tag :p, I18n.t("helpers.help_text.membership_application.#{field}"), class: 'help-text'
+  def help_for(field)
+    render 'shared/help_for_field', field: field
   end
 end
