@@ -16,10 +16,12 @@
 
     <%= f.label :payroll_number %>
     <%= form_field_errors f, :payroll_number %>
-    <%= f.text_field :payroll_number %>
+    <%= help_for :payroll_number %>
+    <%= f.text_field :payroll_number, placeholder: true %>
 
     <%= f.label :pay_rate %>
     <%= form_field_errors f, :pay_rate %>
+    <%= help_for :pay_rate %>
     <%= f.text_field :pay_rate %>
 
     <fieldset>

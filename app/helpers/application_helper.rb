@@ -8,4 +8,8 @@ module ApplicationHelper
       end.join.html_safe
     end
   end
+
+  def help_for(field)
+    render 'shared/help_for_field', field: field
+  end
 end
