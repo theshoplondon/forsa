@@ -27,6 +27,17 @@ class MembershipApplication < ApplicationRecord
   PAY_UNIT = %w[hour week month year].freeze
   validates :pay_unit, inclusion: { in: PAY_UNIT }, if: -> { reached_step?('work-and-pay') }
 
+  attribute :declaration, :string
+  validate :declaration_is_signed, if: -> { reached_step?('declaration') }
+
+  def declaration_is_signed
+    errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def reached_step?(step)
     Steps.instance.reached_step?(self.current_step, step)
   end

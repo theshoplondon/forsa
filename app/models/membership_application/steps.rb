@@ -6,6 +6,7 @@ class MembershipApplication
       'about-you'       => [:title, :first_name, :last_name, :date_of_birth],
       'contact-details' => [:email, :phone_number],
       'work-and-pay'    => [:job_title, :employer, :work_address, :payroll_number, :pay_rate, :pay_unit],
+      'declaration'     => [:declaration]
     }]
 
     def step_names

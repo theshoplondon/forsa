@@ -1,5 +1,7 @@
+<% interpolations ||= {} %>
+
 <p class="help-text">
-  <%= t("helpers.help_text.membership_application.#{field}") %>
+  <%= t("helpers.help_text.membership_application.#{field}", interpolations) %>
 
   <% if I18n.exists?("helpers.help_dropdown.membership_application.#{field}") %>
     <a data-toggle="<%= field %>-help-dropdown">

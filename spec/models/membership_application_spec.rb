@@ -66,4 +66,34 @@ RSpec.describe MembershipApplication do
       end
     end
   end
+
+  context 'the final step requires a signature' do
+    let(:params) do
+      {
+        current_step: 'declaration',
+        first_name: 'Natalie',
+        last_name: 'Zurbman',
+        email: 'n@example.com',
+        date_of_birth: '19/04/1973',
+        phone_number: '02345678',
+        job_title: 'Accountant',
+        employer: 'Office of Public Works',
+        work_address: 'Somewhere',
+        payroll_number: '1234',
+        pay_rate: '35000',
+        pay_unit: 'year'
+      }
+    end
+
+    it 'fails with a single message' do
+      expect(application.errors.count).to eql 1
+      expect(application.errors[:declaration]).to eql(['must be "Natalie Zurbman"'])
+    end
+
+    context 'the declaration is provided' do
+      before { application.declaration = 'Natalie Zurbman' }
+
+      it { is_expected.to be_valid }
+    end
+  end
 end
