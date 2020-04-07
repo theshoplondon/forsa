@@ -24,9 +24,11 @@
     <%= help_for :pay_rate %>
     <%= f.text_field :pay_rate %>
 
-    <fieldset>
+    <fieldset class="radio-group-horizontal">
       <label class="side-note">Every:</label>
-      <%= f.collection_radio_buttons :pay_unit, MembershipApplication::PAY_UNIT, :to_s, :capitalize %>
+      <div>
+        <%= f.collection_radio_buttons :pay_unit, MembershipApplication::PAY_UNIT, :to_s, :capitalize %>
+      </div>
     </fieldset>
 
     <%= f.submit 'Next' %>
