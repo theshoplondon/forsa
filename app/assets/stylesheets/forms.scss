@@ -21,7 +21,8 @@ input {
     color: $white;
     font-family: $body-font-family-bold;
     font-weight: bold;
-    padding: $button-padding
+    padding: $button-padding;
+    clear: both;
   }
 }
 
@@ -65,5 +66,19 @@ input {
       background-color: $forsa-aqua;
       font-family: $body-font-family-bold;
     }
+  }
+}
+
+.hours-per-week {
+  width: 15rem;
+
+  input[type=text] {
+    width: 5rem;
+  }
+
+  .help-text {
+    float: right;
+    width: 60%;
+    margin-top: 0;
   }
 }

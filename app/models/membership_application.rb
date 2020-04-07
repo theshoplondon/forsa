@@ -26,7 +26,10 @@ class MembershipApplication < ApplicationRecord
 
   PAY_UNIT = %w[hour week month year].freeze
   validates :pay_unit, inclusion: { in: PAY_UNIT }, if: -> { reached_step?('work-and-pay') }
+  validates :hours_per_week, numericality: true,
+    if: -> { reached_step?('work-and-pay') && pay_unit == 'hour' }
 
+  # Step 4: Declaration
   attribute :declaration, :string
   validate :declaration_is_signed, if: -> { reached_step?('declaration') }
 

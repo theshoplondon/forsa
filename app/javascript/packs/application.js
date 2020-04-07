@@ -21,3 +21,5 @@ Foundation.addToJquery($)
 $(document).on('turbolinks:load', function() {
   $(document).foundation()
 })
+
+require('packs/work_and_pay')

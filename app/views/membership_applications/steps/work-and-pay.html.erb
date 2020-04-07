@@ -31,6 +31,13 @@
       </div>
     </fieldset>
 
+    <div class="hours-per-week hide">
+      <%= f.label :hours_per_week %>
+      <%= form_field_errors f, :hours_per_week %>
+      <%= help_for :hours_per_week %>
+      <%= f.text_field :hours_per_week %>
+    </div>
+
     <%= f.submit 'Next' %>
   </fieldset>
 <% end %>
