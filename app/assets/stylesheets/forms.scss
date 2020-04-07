@@ -1,11 +1,15 @@
 @import 'settings';
 
-.content fieldset {
-  margin-bottom: $fieldset-padding;
-}
+.content {
+  fieldset {
+    margin-bottom: $fieldset-padding;
+  }
 
-label {
-  font-family: $body-font-family-bold;
+  label {
+    font-family: $body-font-family-bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 input {
