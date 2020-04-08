@@ -16,6 +16,8 @@ gem 'autoprefixer-rails'
 
 gem 'wicked'
 
+gem 'devise'
+
 gem 'rollbar'
 
 # Reduces boot times through caching; required in config/boot.rb
