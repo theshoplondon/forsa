@@ -30,10 +30,19 @@ RSpec.describe '/subscription-rate', type: :request do
     end
 
     context 'parameters are all present' do
-      let(:params) { { 'pay_rate': '15.50', 'pay_unit': 'hour', hours_per_week: '25' } }
+      context 'and do not have any special characters' do
+        let(:params) { { 'pay_rate': '15.50', 'pay_unit': 'hour', hours_per_week: '25' } }
 
-      it 'gets us some JSON with a monthly_estimate in it' do
-        expect(json).to eql('monthly_estimate' => '13.43')
+        it 'gets us some JSON with a monthly_estimate in it' do
+          expect(json).to eql('monthly_estimate' => '13.43')
+        end
+      end
+
+      context 'and have special characters' do
+        let(:params) { { 'pay_rate': '£€15.50', 'pay_unit': 'hour', hours_per_week: '25' } }
+        it 'strips them before processing' do
+          expect(json).to eql('monthly_estimate' => '13.43')
+        end
       end
     end
   end

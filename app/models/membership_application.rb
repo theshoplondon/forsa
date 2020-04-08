@@ -20,8 +20,7 @@ class MembershipApplication < ApplicationRecord
   validates :payroll_number, presence: true, if: -> { reached_step?('work-and-pay') }
   validates :pay_rate, presence: true, numericality: true, if: -> { reached_step?('work-and-pay') }
   def pay_rate=(value)
-    value = value.gsub(/[€,]/, '') if value.is_a?(String)
-    write_attribute(:pay_rate, value)
+    write_attribute(:pay_rate, SubscriptionRate.sanitize_currency(value))
   end
 
   PAY_UNIT = %w[hour week month year].freeze
