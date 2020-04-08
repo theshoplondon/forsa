@@ -26,15 +26,25 @@ function getMonthlyEstimate() {
       return response.json()
     }
   }).then(function(data){
-    $('#monthly-estimate-value').text(data['monthly_estimate'])
-    $('.monthly-estimate').removeClass('hide')
+    monthlyEstimateArrived(data['monthly_estimate'])
   }).catch((err) => console.log(err))
 }
 
 let timer = null
 
+function showSpinner(value) {
+  $('.spinner-overlay').toggleClass('hide', !value)
+}
+
+function monthlyEstimateArrived(value) {
+  $('#monthly-estimate-value').text(value)
+  $('.monthly-estimate').removeClass('hide')
+  showSpinner(false)
+}
+
 function estimateInputChanged(interval = 1500) {
   clearTimeout(timer)
+  showSpinner(true)
   timer = setTimeout(getMonthlyEstimate, interval)
 }
 

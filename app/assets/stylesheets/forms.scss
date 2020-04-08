@@ -84,8 +84,21 @@ input {
 }
 
 .monthly-estimate {
+  position: relative;
   label {
     margin-bottom: $global-margin;
   }
   margin-bottom: $global-margin * 2;
+
+  .spinner-overlay {
+    .lds-dual-ring {
+      margin-left: 45%;
+      margin-top: 1rem;
+    }
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $light-gray;
+    opacity: 0.8;
+  }
 }
