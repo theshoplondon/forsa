@@ -48,10 +48,17 @@ function monthlyEstimateArrived(value) {
   showSpinner(false)
 }
 
+function weHaveEnoughFields() {
+  return (payValue('pay_rate') && (payUnitValue() === 'hour') && payValue('hours_per_week')) ||
+    ((payValue('pay_rate')) && payUnitValue());
+}
+
 function estimateInputChanged(interval = 1500) {
-  clearTimeout(timer)
-  showSpinner(true)
-  timer = setTimeout(getMonthlyEstimate, interval)
+  if(weHaveEnoughFields()) {
+    clearTimeout(timer)
+    showSpinner(true)
+    timer = setTimeout(getMonthlyEstimate, interval)
+  }
 }
 
 $(document).on('turbolinks:load', function() {
