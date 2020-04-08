@@ -12,28 +12,34 @@ function setHoursPerWeekVisibility() {
 }
 
 function getMonthlyEstimate() {
-  fetch(`/subscription-rate?pay_unit=${payUnitValue()}&pay_rate=${payValue('pay_rate')}&hours_per_week=${payValue('hours_per_week')}`, {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json',
-      'X-CSRF-Token': Rails.csrfToken()
+  fetch(
+    `/subscription-rate?pay_unit=${payUnitValue()}&pay_rate=${payValue('pay_rate')}&hours_per_week=${payValue('hours_per_week')}`,
+    {
+      method: 'get',
+      headers: {
+        'Accept': 'application/json',
+        'X-CSRF-Token': Rails.csrfToken()
     },
     credentials: 'same-origin'
   }).then(function(response) {
-    console.log(response);
-
-    if (response.ok) {
-      return response.json()
+    if(response.ok) {
+      response.json().then(data => monthlyEstimateArrived(data.monthly_estimate))
+    } else {
+      response.json().then(data => monthlyEstimateErrored(data.error))
     }
-  }).then(function(data){
-    monthlyEstimateArrived(data['monthly_estimate'])
-  }).catch((err) => console.log(err))
+  })
 }
 
 let timer = null
 
 function showSpinner(value) {
   $('.spinner-overlay').toggleClass('hide', !value)
+}
+
+function monthlyEstimateErrored(error) {
+  $('.monthly-estimate').addClass('hide')
+  showSpinner(false)
+  console.log(`Error getting monthly estimate: ${error}`)
 }
 
 function monthlyEstimateArrived(value) {

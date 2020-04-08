@@ -11,11 +11,11 @@ class SubscriptionRate
     raise ArgumentError, 'pay_rate is required' if pay_rate.nil?
     raise ArgumentError, 'pay_unit is required' if pay_unit.nil?
     raise ArgumentError, "pay_unit of 'hour' given, hours_per_week required" if
-      pay_unit == 'hour' && hours_per_week.nil?
+      pay_unit == 'hour' && hours_per_week.blank?
 
     self.pay_rate = BigDecimal(pay_rate)
     self.pay_unit = pay_unit
-    self.hours_per_week = BigDecimal(hours_per_week) if hours_per_week
+    self.hours_per_week = BigDecimal(hours_per_week) if pay_unit == 'hour'
   end
 
   ##

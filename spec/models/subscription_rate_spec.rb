@@ -67,6 +67,14 @@ RSpec.describe SubscriptionRate do
         end
       end
 
+      context 'hours_per_week was blank' do
+        it 'raises an ArgumentError' do
+          expect { SubscriptionRate.new(pay_rate, pay_unit, '') }.to raise_error(
+            ArgumentError, /pay_unit of 'hour' given, hours_per_week required/
+          )
+        end
+      end
+
       context 'hours_per_week are given' do
         let(:hours_per_week) { 30 }
 
