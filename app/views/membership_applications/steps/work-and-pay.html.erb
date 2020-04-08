@@ -31,12 +31,21 @@
       </div>
     </fieldset>
 
-    <div class="hours-per-week hide">
+    <section class="hours-per-week hide">
       <%= f.label :hours_per_week %>
       <%= form_field_errors f, :hours_per_week %>
       <%= help_for :hours_per_week %>
       <%= f.text_field :hours_per_week %>
-    </div>
+    </section>
+
+    <section class="hide monthly-estimate">
+      <label>
+        Based on your salary, your monthly payment will be
+        €<span id="monthly-estimate-value">#NOVALUE</span>
+      </label>
+
+      <%= help_for :monthly_estimate %>
+    </section>
 
     <%= f.submit 'Next' %>
   </fieldset>

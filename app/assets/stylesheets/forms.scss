@@ -82,3 +82,10 @@ input {
     margin-top: 0;
   }
 }
+
+.monthly-estimate {
+  label {
+    margin-bottom: $global-margin;
+  }
+  margin-bottom: $global-margin * 2;
+}
