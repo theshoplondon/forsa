@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     get 'completed'
     resources :steps, only: %i[show update], controller: 'membership_applications/steps'
   end
+
+  resource :subscription_rate, only: :show, path: 'subscription-rate'
 end

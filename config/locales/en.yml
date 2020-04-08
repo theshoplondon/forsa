@@ -41,6 +41,7 @@ en:
         payroll_number: 'Your payroll number'
         pay_rate: 'What are you paid?'
         declaration: 'Sign your application by typing your name'
+        hours_per_week: 'How many hours a week do you work?'
     placeholder:
       membership_application:
         email: "natalie@example.com"
@@ -52,6 +53,10 @@ en:
         pay_rate: 'If the amount varies, use an average.'
         payroll_number: 'Found on your payslip'
         declaration: 'This must be "%{full_name}"'
+        hours_per_week: 'Take the average over the last month.'
+        monthly_estimate:
+          This is 0.8% of your pay. Your employer will automatically deduct this and
+          pay it directly to Fórsa.
     help_dropdown:
       membership_application:
         email:

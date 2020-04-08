@@ -21,7 +21,8 @@ input {
     color: $white;
     font-family: $body-font-family-bold;
     font-weight: bold;
-    padding: $button-padding
+    padding: $button-padding;
+    clear: both;
   }
 }
 
@@ -35,7 +36,7 @@ input {
 }
 
 .radio-group-horizontal {
-  width: 80%;
+  width: 100%;
   div {
     border: 1px solid $forsa-aqua;
     border-radius: $form-button-radius;
@@ -65,5 +66,39 @@ input {
       background-color: $forsa-aqua;
       font-family: $body-font-family-bold;
     }
+  }
+}
+
+.hours-per-week {
+  width: 15rem;
+
+  input[type=text] {
+    width: 5rem;
+  }
+
+  .help-text {
+    float: right;
+    width: 60%;
+    margin-top: 0;
+  }
+}
+
+.monthly-estimate {
+  position: relative;
+  label {
+    margin-bottom: $global-margin;
+  }
+  margin-bottom: $global-margin * 2;
+
+  .spinner-overlay {
+    .lds-dual-ring {
+      margin-left: 45%;
+      margin-top: 1rem;
+    }
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $light-gray;
+    opacity: 0.8;
   }
 }

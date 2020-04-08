@@ -18,4 +18,8 @@ Foundation.addToJquery($)
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-$(function(){ $(document).foundation(); });
+$(document).on('turbolinks:load', function() {
+  $(document).foundation()
+})
+
+require('packs/work_and_pay')
