@@ -5,7 +5,7 @@ class SubscriptionRate
   DEEMED_WEEKS     = 52.freeze
   DEEMED_MONTHS    = 12.freeze
 
-  attr_accessor :pay_rate, :pay_unit, :hours_per_week
+  attr_reader :pay_rate, :pay_unit, :hours_per_week
 
   def initialize(pay_rate, pay_unit, hours_per_week = nil)
     raise ArgumentError, 'pay_rate is required' if pay_rate.nil?
@@ -13,9 +13,9 @@ class SubscriptionRate
     raise ArgumentError, "pay_unit of 'hour' given, hours_per_week required" if
       pay_unit == 'hour' && hours_per_week.blank?
 
-    self.pay_rate = BigDecimal(pay_rate)
-    self.pay_unit = pay_unit
-    self.hours_per_week = BigDecimal(hours_per_week) if pay_unit == 'hour'
+    @pay_rate = BigDecimal(SubscriptionRate.sanitize_currency(pay_rate))
+    @pay_unit = pay_unit
+    @hours_per_week = BigDecimal(hours_per_week) if pay_unit == 'hour'
   end
 
   ##
@@ -43,5 +43,9 @@ class SubscriptionRate
   # Monthly estimate as a decimal
   def monthly
     (capped_annual_pay * FIXED_PERCENTAGE / 100) / 12
+  end
+
+  def self.sanitize_currency(value)
+    value.is_a?(String) ? value.gsub(/[£€,]/, '') : value
   end
 end
