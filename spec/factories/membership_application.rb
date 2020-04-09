@@ -1,0 +1,53 @@
+FactoryBot.define do
+  factory :membership_application do
+    sequence(:email) { |n| "person#{n}@example.com" }
+
+    first_name { 'Natalie' }
+
+    trait(:step_new) {}
+
+    ##
+    # Note each of the below traits creates a valid object.
+    #
+    # To create an object with invalid attributes, first create
+    # a valid one then subtract things.
+    trait :step_about_you do
+      step_new
+
+      current_step { 'about-you' }
+
+      first_name    { 'Natalie' }
+      last_name     { 'Zurbman' }
+      date_of_birth { '19/04/1973' }
+    end
+
+    trait :step_contact_details do
+      step_about_you
+
+      current_step { 'contact-details' }
+
+      phone_number { '02345678' }
+      job_title    { 'Accountant' }
+    end
+
+    trait :step_work_and_pay do
+      step_contact_details
+
+      current_step { 'work-and-pay' }
+
+      employer       { 'Office of Public Works' }
+      work_address   { 'Somewhere' }
+      payroll_number { '1234' }
+      pay_rate       { '35000' }
+      pay_unit       { 'year' }
+    end
+
+    trait :step_declaration do
+      step_work_and_pay
+
+      current_step { 'declaration' }
+
+      declaration { 'Natalie Zurbman' }
+    end
+  end
+end
