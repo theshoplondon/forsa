@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Gems with generators that need to remain accessible go here
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :test do
