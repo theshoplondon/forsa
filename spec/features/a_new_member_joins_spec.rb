@@ -26,6 +26,7 @@ feature 'A new member joins' do
     fill_in 'Title', with: 'Mr.'
     fill_in 'Last', with: 'Memberapplication'
     fill_in 'Date of birth', with: '25/05/1975'
+    choose 'membership_application_gender_male'
 
     # And I go to the next step
     click_button 'Next'

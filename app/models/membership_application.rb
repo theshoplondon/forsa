@@ -7,7 +7,9 @@ class MembershipApplication < ApplicationRecord
   validates :email, uniqueness: true, on: :create
 
   # Step 1: About you
+  GENDER = %w[male female non-binary other]
   validates :last_name, presence: true, if: -> { reached_step?('about-you') }
+  validates :gender, inclusion: { in: GENDER }, if: -> { reached_step?('about-you') }
   validates :date_of_birth, presence: true, if: -> { reached_step?('about-you') }
 
   # Step 2: Contact details

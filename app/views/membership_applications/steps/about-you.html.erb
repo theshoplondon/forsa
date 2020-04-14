@@ -14,6 +14,16 @@
     <%= form_field_errors f, :last_name %>
     <%= f.text_field :last_name %>
 
+    <%= f.label :gender %>
+    <%= form_field_errors f, :gender %>
+    <%= help_for :gender %>
+
+    <fieldset class="radio-group-vertical">
+      <%= f.collection_radio_buttons :gender, MembershipApplication::GENDER, :to_s, :capitalize do |b| %>
+        <% b.label { b.radio_button + b.text } %>
+      <% end %>
+    </fieldset>
+
     <%= f.label :date_of_birth %>
     <%= form_field_errors f, :date_of_birth %>
     <%= f.text_field :date_of_birth %>
