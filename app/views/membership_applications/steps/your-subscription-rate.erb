@@ -30,7 +30,15 @@
         €<span id="monthly-estimate-value">#NOVALUE</span>
       </label>
 
-      <%= help_for :monthly_estimate %>
+      <div class="help-text">
+        <p>This is calculated at 0.8% of your gross salary,
+          which is what the majority of our members pay.</p>
+
+        <p>Some branches are calculated at a different rate.
+          If your branch is one of these we will notify you in advance of any payment being processed.</p>
+
+        <p>Your employer will apply the deduction directly to your pay and provide it to us on your behalf.</p>
+      </div>
     </section>
 
     <%= f.submit 'Next' %>
