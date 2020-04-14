@@ -32,6 +32,9 @@ class MembershipApplication < ApplicationRecord
   attribute :declaration, :string
   validate :declaration_is_signed, if: -> { reached_step?('declaration') }
 
+  # Scopes
+  scope :signed, -> { where(current_step: 'declaration') }
+
   def declaration_is_signed
     errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
   end
@@ -42,5 +45,10 @@ class MembershipApplication < ApplicationRecord
 
   def reached_step?(step)
     Steps.instance.reached_step?(self.current_step, step)
+  end
+
+  def as_json(options = {})
+    exclude = %w[declaration current_step]
+    super(options).except(*exclude)
   end
 end

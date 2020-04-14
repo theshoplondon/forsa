@@ -1,14 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe MembershipApplication do
-  subject(:application) { MembershipApplication.new(params) }
-
-  before { application.validate }
+RSpec.describe MembershipApplication, type: :model do
+  subject(:application) do
+    build :membership_application, "step_#{step.underscore}".to_sym
+  end
 
   context 'the current_step is not set' do
-    let(:params) do
-      { first_name: 'Natalie', email: 'n@example.com' }
-    end
+    let(:step) { 'new' }
 
     it 'only validates first name and email' do
       expect(application).to be_valid
@@ -16,24 +14,27 @@ RSpec.describe MembershipApplication do
   end
 
   context 'the current_step is the first one, about-you' do
-    let(:params) do
-      { current_step: 'about-you', first_name: 'Natalie', email: 'n.example.com' }
-    end
+    let(:step) { 'about-you' }
+
+    before { application.last_name = nil }
 
     it 'now validates parameters from the second step' do
       aggregate_failures do
         expect(application).not_to be_valid
 
         expect(application.errors[:last_name]).to eql ["can't be blank"]
-        expect(application.errors[:date_of_birth]).to eql ["can't be blank"]
       end
     end
   end
 
   context 'the current_step is the second step, contact-details' do
+    let(:step) { 'contact-details'}
+
     context 'and some of the details from the previous step are removed' do
-      let(:params) do
-        { current_step: 'contact-details', first_name: 'Natalie', email: 'n.example.com' }
+      before do
+        application.last_name = nil
+        application.date_of_birth = nil
+        application.phone_number = nil
       end
 
       it 'still validates the previous step along with the current step' do
@@ -48,14 +49,9 @@ RSpec.describe MembershipApplication do
     end
 
     context 'and some of the details from the current step are not filled in' do
-      let(:params) do
-        {
-          current_step: 'contact-details',
-          first_name: 'Natalie',
-          email: 'n.example.com',
-          title: 'Ms'
-        }
-      end
+      let(:step) { 'contact-details' }
+
+      before { application.last_name = nil }
 
       it 'is not valid' do
         aggregate_failures do
@@ -68,26 +64,17 @@ RSpec.describe MembershipApplication do
   end
 
   context 'the final step requires a signature' do
-    let(:params) do
-      {
-        current_step: 'declaration',
-        first_name: 'Natalie',
-        last_name: 'Zurbman',
-        email: 'n@example.com',
-        date_of_birth: '19/04/1973',
-        phone_number: '02345678',
-        job_title: 'Accountant',
-        employer: 'Office of Public Works',
-        work_address: 'Somewhere',
-        payroll_number: '1234',
-        pay_rate: '35000',
-        pay_unit: 'year'
-      }
-    end
+    let(:step) { 'declaration' }
 
-    it 'fails with a single message' do
-      expect(application.errors.count).to eql 1
-      expect(application.errors[:declaration]).to eql(['must be "Natalie Zurbman"'])
+    context 'which is not provided' do
+      before { application.declaration = nil }
+
+      it 'fails with a single message' do
+        expect(application).not_to be_valid
+
+        expect(application.errors.count).to eql 1
+        expect(application.errors[:declaration]).to eql(['must be "Natalie Zurbman"'])
+      end
     end
 
     context 'the declaration is provided' do

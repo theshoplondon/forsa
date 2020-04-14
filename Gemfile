@@ -16,14 +16,21 @@ gem 'autoprefixer-rails'
 
 gem 'wicked'
 
+gem 'devise'
+
 gem 'rollbar'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'capybara'
+  # Gems with generators that need to remain accessible go here
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+end
+
+group :test do
+  gem 'capybara'
   gem 'launchy'
   gem 'rspec_junit_formatter'
 end
