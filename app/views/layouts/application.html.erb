@@ -39,6 +39,13 @@
 
     <div class="grid-container-fluid">
       <footer class="grid-x">
+        <div class="cell float-right">
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>.
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+          <% end %>
+        </div>
+
         <ul class="cell">
           <li><%= link_to 'How we use your data', '#' %></li>
           <li><%= link_to 'Privacy policy', '#' %></li>

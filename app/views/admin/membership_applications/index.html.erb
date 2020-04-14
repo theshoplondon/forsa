@@ -1,0 +1,31 @@
+<%= content_for :title do %>
+  Admin | Membership applications
+<% end %>
+
+<h1>
+  Signed membership applications
+</h1>
+
+<table class="hover">
+  <thead>
+  <tr>
+    <th>Full name</th>
+    <th>Employer</th>
+    <th>Job Title</th>
+    <th>Applied on (UTC)</th>
+  </tr>
+  </thead>
+  <% @membership_applications.each do |application| %>
+    <tr class="membership-application">
+      <td><%= application.full_name %></td>
+      <td><%= application.employer %></td>
+      <td><%= application.job_title %></td>
+      <td><%= application.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%=
+  link_to 'Get the JSON', admin_membership_applications_path(format: :json),
+    class: 'button float-right'
+%>

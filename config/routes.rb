@@ -9,4 +9,12 @@ Rails.application.routes.draw do
   end
 
   resource :subscription_rate, only: :show, path: 'subscription-rate'
+
+  authenticate :user do
+    namespace :admin do
+      root to: redirect('admin/membership-applications'), as: :user_root
+      resources :membership_applications, only: %i[show index], path: 'membership-applications'
+    end
+    get '/admin', to: redirect('admin/membership-applications')
+  end
 end

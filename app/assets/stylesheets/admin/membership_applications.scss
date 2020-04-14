@@ -1,0 +1,11 @@
+// Place all the styles related to the Admin::MembershipApplications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'settings';
+
+table {
+  thead {
+    font-family: $body-font-family-bold;
+  }
+}
