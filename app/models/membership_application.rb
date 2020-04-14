@@ -15,19 +15,19 @@ class MembershipApplication < ApplicationRecord
   validates :home_address, presence: true, if: -> { reached_step?('contact-details') }
 
   # Step 3: Work and pay
-  validates :job_title, presence: true, if: -> { reached_step?('work-and-pay') }
-  validates :employer, presence: true, if: -> { reached_step?('work-and-pay') }
-  validates :work_address, presence: true, if: -> { reached_step?('work-and-pay') }
-  validates :payroll_number, presence: true, if: -> { reached_step?('work-and-pay') }
-  validates :pay_rate, presence: true, numericality: true, if: -> { reached_step?('work-and-pay') }
+  validates :job_title, presence: true, if: -> { reached_step?('your-work') }
+  validates :employer, presence: true, if: -> { reached_step?('your-work') }
+  validates :work_address, presence: true, if: -> { reached_step?('your-work') }
+  validates :payroll_number, presence: true, if: -> { reached_step?('your-work') }
+  validates :pay_rate, presence: true, numericality: true, if: -> { reached_step?('your-work') }
   def pay_rate=(value)
     write_attribute(:pay_rate, SubscriptionRate.sanitize_currency(value))
   end
 
   PAY_UNIT = %w[hour week month year].freeze
-  validates :pay_unit, inclusion: { in: PAY_UNIT }, if: -> { reached_step?('work-and-pay') }
+  validates :pay_unit, inclusion: { in: PAY_UNIT }, if: -> { reached_step?('your-work') }
   validates :hours_per_week, numericality: true,
-    if: -> { reached_step?('work-and-pay') && pay_unit == 'hour' }
+    if: -> { reached_step?('your-work') && pay_unit == 'hour' }
 
   # Step 4: Declaration
   attribute :declaration, :string
