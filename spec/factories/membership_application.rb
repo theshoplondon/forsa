@@ -18,6 +18,7 @@ FactoryBot.define do
 
       first_name    { 'Natalie' }
       last_name     { 'Zurbman' }
+      gender        { 'female' }
       date_of_birth { '19/04/1973' }
     end
 

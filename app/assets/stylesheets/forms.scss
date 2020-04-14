@@ -69,6 +69,33 @@ input {
   }
 }
 
+.radio-group-vertical {
+  border-left: 8px solid $medium-gray;
+  label {
+    .field_with_errors {
+      // Stop rails errors shoving the label/input out of whack
+      display: inline;
+    }
+    border-top: 1px solid $medium-gray;
+    border-right: 1px solid $medium-gray;
+    border-bottom: 1px solid $medium-gray;
+    border-left: 0;
+    border-radius: 0 8px 8px 0;
+    padding: $global-padding / 4 0 0 $global-padding;
+    font-family: $body-font-family;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    input {
+      vertical-align: middle;
+      margin-right: $global-padding;
+      margin-top: $global-padding / 2;
+    }
+  }
+}
+
 .hours-per-week {
   width: 15rem;
 

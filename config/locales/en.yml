@@ -31,6 +31,13 @@
 
 en:
   main_title: "Join Fórsa"
+  activerecord:
+    errors:
+      models:
+        membership_application:
+          attributes:
+            gender:
+              inclusion: 'please select a value from the list'
   helpers:
     label:
       membership_application:
@@ -70,3 +77,8 @@ en:
           link: 'Why do we need this?'
           content:
             We may need to send you union documents, such as ballot papers.
+        gender:
+          link: 'Why do we ask?'
+          content:
+            This helps us monitor gender equality and inclusiveness in the union.
+            The information provided will be used solely for statistical purposes.

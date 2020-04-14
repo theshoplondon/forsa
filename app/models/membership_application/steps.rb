@@ -3,7 +3,7 @@ class MembershipApplication
     include Singleton
 
     PARAMS = ActiveSupport::OrderedHash[{
-      'about-you'              => [:title, :first_name, :last_name, :date_of_birth],
+      'about-you'              => [:title, :first_name, :last_name, :gender, :date_of_birth],
       'contact-details'        => [:email, :phone_number, :home_address],
       'your-work'              => [:job_title, :employer, :work_address, :payroll_number],
       'your-subscription-rate' => [:pay_rate, :pay_unit, :hours_per_week],
