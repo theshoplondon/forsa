@@ -38,6 +38,7 @@ feature 'A new member joins' do
 
     # When I fill in further contact details
     fill_in 'Phone number', with: '0123456789'
+    fill_in 'Home address', with: '20 Plankton Road'
 
     click_button 'Next'
 
@@ -69,6 +70,7 @@ feature 'A new member joins' do
     membership_application = MembershipApplication.last
     expect(membership_application.last_name).to eql('Memberapplication')
     expect(membership_application.date_of_birth).to eql(Date.new(1975, 5, 25))
+    expect(membership_application.home_address).to eql('20 Plankton Road')
     expect(membership_application.pay_unit).to eql('year')
     expect(membership_application.pay_rate).to eql(BigDecimal(29250))
     expect(membership_application.current_step).to eql('declaration')
