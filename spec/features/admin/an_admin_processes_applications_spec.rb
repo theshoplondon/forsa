@@ -20,7 +20,7 @@ end
 feature 'View unprocessed membership applications' do
   def given_there_are_signed_applications(number)
     @signed_applications = FactoryBot.create_list(:membership_application, number, :step_declaration)
-    @unsigned_application = FactoryBot.create(:membership_application, :step_work_and_pay)
+    @unsigned_application = FactoryBot.create(:membership_application, :step_your_work)
   end
 
   scenario 'everything goes to plan' do

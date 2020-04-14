@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe MembershipApplications::StepsController, type: :controller do
-  let(:membership_application) { create :membership_application, :step_work_and_pay }
+  let(:membership_application) { create :membership_application, :step_your_work }
 
   describe 'signing the application' do
     before do
@@ -25,8 +25,8 @@ RSpec.describe MembershipApplications::StepsController, type: :controller do
 
     context 'the declaration is not correct' do
       let(:declaration) { 'Notolyu Zarbmen' }
-      it 'leaves the application at the work-and-pay step' do
-        expect(membership_application.current_step).to eql('work-and-pay')
+      it 'leaves the application at the your-work step' do
+        expect(membership_application.current_step).to eql('your-work')
       end
     end
   end

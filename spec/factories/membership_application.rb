@@ -31,10 +31,10 @@ FactoryBot.define do
       home_address { '21 Plankton Road' }
     end
 
-    trait :step_work_and_pay do
+    trait :step_your_work do
       step_contact_details
 
-      current_step { 'work-and-pay' }
+      current_step { 'your-work' }
 
       employer       { 'Office of Public Works' }
       work_address   { 'Somewhere' }
@@ -44,7 +44,7 @@ FactoryBot.define do
     end
 
     trait :step_declaration do
-      step_work_and_pay
+      step_your_work
 
       current_step { 'declaration' }
 

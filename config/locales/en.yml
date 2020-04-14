@@ -37,7 +37,7 @@ en:
         email: "Email address"
         job_title: 'Your job title'
         employer: 'Your employer'
-        work_address: 'Your work place'
+        work_address: 'Your workplace address'
         payroll_number: 'Your payroll number'
         pay_rate: 'What are you paid?'
         declaration: 'Sign your application by typing your name'
@@ -68,7 +68,7 @@ en:
         payroll_number:
           link: '(why do we need this?)'
           content:
-            We need to arrange with your employer to deduct your membership payment from source.
+            This helps us with the administration of deducting your union subscription fee each month.
         home_address:
           link: 'Why do we need this?'
           content:

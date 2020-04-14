@@ -45,7 +45,7 @@ feature 'A new member joins' do
     # And I fill in work and pay details
     fill_in 'Your job title', with: 'User Researcher'
     fill_in 'Your employer', with: 'Office of Public Works'
-    fill_in 'Your work place', with: <<~TXT
+    fill_in 'Your workplace address', with: <<~TXT
       Head Office
       Jonathan Swift Street
       Trim
