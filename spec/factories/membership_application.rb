@@ -28,6 +28,7 @@ FactoryBot.define do
 
       phone_number { '02345678' }
       job_title    { 'Accountant' }
+      home_address { '21 Plankton Road' }
     end
 
     trait :step_work_and_pay do

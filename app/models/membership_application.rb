@@ -12,6 +12,7 @@ class MembershipApplication < ApplicationRecord
 
   # Step 2: Contact details
   validates :phone_number, presence: true, if: -> { reached_step?('contact-details') }
+  validates :home_address, presence: true, if: -> { reached_step?('contact-details') }
 
   # Step 3: Work and pay
   validates :job_title, presence: true, if: -> { reached_step?('work-and-pay') }

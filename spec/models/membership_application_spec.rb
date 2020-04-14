@@ -28,13 +28,14 @@ RSpec.describe MembershipApplication, type: :model do
   end
 
   context 'the current_step is the second step, contact-details' do
-    let(:step) { 'contact-details'}
+    let(:step) { 'contact-details' }
 
     context 'and some of the details from the previous step are removed' do
       before do
         application.last_name = nil
         application.date_of_birth = nil
         application.phone_number = nil
+        application.home_address = nil
       end
 
       it 'still validates the previous step along with the current step' do
@@ -43,6 +44,7 @@ RSpec.describe MembershipApplication, type: :model do
 
           expect(application.errors[:last_name]).to eql ["can't be blank"]
           expect(application.errors[:date_of_birth]).to eql ["can't be blank"]
+          expect(application.errors[:home_address]).to eql ["can't be blank"]
           expect(application.errors[:phone_number]).to eql ["can't be blank"]
         end
       end

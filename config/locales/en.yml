@@ -69,3 +69,7 @@ en:
           link: '(why do we need this?)'
           content:
             We need to arrange with your employer to deduct your membership payment from source.
+        home_address:
+          link: 'Why do we need this?'
+          content:
+            We may need to send you union documents, such as ballot papers.
