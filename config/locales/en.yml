@@ -68,7 +68,7 @@ en:
         payroll_number:
           link: '(why do we need this?)'
           content:
-            We need to arrange with your employer to deduct your membership payment from source.
+            This helps us with the administration of deducting your union subscription fee each month.
         home_address:
           link: 'Why do we need this?'
           content:
