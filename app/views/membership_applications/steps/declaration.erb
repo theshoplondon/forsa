@@ -17,6 +17,17 @@
     <%= help_for :declaration, full_name: @membership_application.full_name %>
     <%= f.text_field :declaration %>
 
+    <section class="callout secondary">
+      <h3>A note about help with existing problems at work</h3>
+      <p>Fórsa helps our members. Unfortunately, we are unlikely to be able to help
+        with problems that occurred at work before you became a member.</p>
+
+      <p><strong>
+        If you have any questions about this, please <%= link_to 'Email us', 'mailto:membership@forsa.ie' %> or
+        call us on <%= link_to '01 817 1500', 'tel:01 817 1500' %>
+      </strong></p>
+    </section>
+
     <%= f.submit 'Finish' %>
   </fieldset>
 <% end %>
