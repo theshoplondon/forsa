@@ -20,7 +20,7 @@ feature 'A new member joins' do
     expect(page).to have_css('input[value="Mick"]')
 
     expect(page).to have_content 'About you'
-    expect(page).to have_content 'Step 1 of 4'
+    expect(page).to have_content 'Step 1 of 5'
 
     # When I fill in more details
     fill_in 'Title', with: 'Mr.'
@@ -31,7 +31,7 @@ feature 'A new member joins' do
     click_button 'Next'
 
     expect(page).to have_content 'Contact details'
-    expect(page).to have_content 'Step 2 of 4'
+    expect(page).to have_content 'Step 2 of 5'
 
     # Then it has prefilled email
     expect(page).to have_css('input[value="mick@memberapplication.ie"]')
@@ -42,7 +42,7 @@ feature 'A new member joins' do
 
     click_button 'Next'
 
-    # And I fill in work and pay details
+    # And I fill in work details
     fill_in 'Your job title', with: 'User Researcher'
     fill_in 'Your employer', with: 'Office of Public Works'
     fill_in 'Your workplace address', with: <<~TXT
@@ -52,6 +52,10 @@ feature 'A new member joins' do
       C15 NX36
     TXT
     fill_in 'Your payroll number', with: 'OE1234567'
+
+    click_button 'Next'
+
+    # And I fill in pay details
     fill_in 'What are you paid?', with: '29,250'
 
     choose 'membership_application_pay_unit_year'
@@ -89,7 +93,7 @@ feature 'A new member joins' do
     click_button 'Get started'
 
     expect(page).to have_content 'About you'
-    expect(page).to have_content 'Step 1 of 4'
+    expect(page).to have_content 'Step 1 of 5'
 
     # When I neglect to fill in a field
     fill_in 'Title', with: 'Mr.'
@@ -101,7 +105,7 @@ feature 'A new member joins' do
 
     # Then I should be held up on the same page
     expect(page).to have_content 'About you'
-    expect(page).to have_content 'Step 1 of 4'
+    expect(page).to have_content 'Step 1 of 5'
     expect(page).to have_content "can't be blank"
   end
 end

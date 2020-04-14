@@ -39,12 +39,19 @@ FactoryBot.define do
       employer       { 'Office of Public Works' }
       work_address   { 'Somewhere' }
       payroll_number { '1234' }
+    end
+
+    trait :step_your_subscription_rate do
+      step_your_work
+
+      current_step { 'your-subscription-rate' }
+
       pay_rate       { '35000' }
       pay_unit       { 'year' }
     end
 
     trait :step_declaration do
-      step_your_work
+      step_your_subscription_rate
 
       current_step { 'declaration' }
 

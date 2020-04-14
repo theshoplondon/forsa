@@ -1,0 +1,38 @@
+<%= render 'step_title', title: 'Your subscription rate', step: 4, of: 5 %>
+
+<%= form_for @membership_application, url: wizard_path do |f| %>
+  <fieldset>
+    <%= f.label :pay_rate %>
+    <%= form_field_errors f, :pay_rate %>
+    <%= help_for :pay_rate %>
+    <%= f.text_field :pay_rate %>
+
+    <fieldset class="radio-group-horizontal">
+      <label class="side-note">Every:</label>
+      <div>
+        <%= f.collection_radio_buttons :pay_unit, MembershipApplication::PAY_UNIT, :to_s, :capitalize %>
+      </div>
+    </fieldset>
+
+    <section class="hours-per-week hide">
+      <%= f.label :hours_per_week %>
+      <%= form_field_errors f, :hours_per_week %>
+      <%= help_for :hours_per_week %>
+      <%= f.text_field :hours_per_week %>
+    </section>
+
+    <section class="hide monthly-estimate">
+      <div class="hide spinner-overlay">
+        <div class="lds-dual-ring"></div>
+      </div>
+      <label>
+        Based on your salary, your monthly payment will be
+        €<span id="monthly-estimate-value">#NOVALUE</span>
+      </label>
+
+      <%= help_for :monthly_estimate %>
+    </section>
+
+    <%= f.submit 'Next' %>
+  </fieldset>
+<% end %>
