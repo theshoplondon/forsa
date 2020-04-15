@@ -1,9 +1,13 @@
 require "rails_helper"
 
 RSpec.describe MembershipApplications::StepsController, type: :controller do
-  let(:membership_application) { create :membership_application, :step_your_subscription_rate }
+  let(:membership_application) do
+    create :membership_application,
+           :step_your_subscription_rate,
+           email: 'mick@memberapplication.ie'
+  end
 
-  describe 'signing the application' do
+  describe 'signing the application', vcr: { cassette_name: 'mail_chimp_feature_subscribe' } do
     before do
       session[:membership_application_id] = membership_application.id
 

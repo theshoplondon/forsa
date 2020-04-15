@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members
+    body:
+      encoding: UTF-8
+      string: '{"email_address":"mick@memberapplication.ie","status":"pending","merge_fields":{"FNAME":"Mick","LNAME":"Memberapplication","EMPNAME":"Office
+        of Public Works","JOBTITLE":"User Researcher","SIGNED_ON":"15/04/2020"}}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Basic YXBpa2V5OjA4ZjI1OWY0M2NkZmYzNTU5Y2ZkMzEzN2E1MzUzZTdmLXVzNQ==
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Id:
+      - aecbee41-3305-421e-bb0a-e4118519999d
+      Link:
+      - <https://us5.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json>; rel="describedBy",
+        <https://us5.admin.mailchimp.com/lists/members/view?id=203481332>; rel="dashboard"
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 15 Apr 2020 16:27:20 GMT
+      Content-Length:
+      - '3285'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+      - _mcid=1.c417604feda3bf7bbf6f27c12eeeec0b.a24be3f8890507ca31fa8e2790033f0ded039b51172f7f33c91777ca366bacc8;
+        expires=Thu, 15-Apr-2021 16:27:20 GMT; Max-Age=31536000; path=/; domain=.mailchimp.com
+    body:
+      encoding: UTF-8
+      string: '{"id":"481a4ea9b3b792c5407de2b10ee6b04f","email_address":"mick@memberapplication.ie","unique_email_id":"53b4e4b521","web_id":203481332,"email_type":"html","status":"pending","merge_fields":{"FNAME":"Mick","LNAME":"Memberapplication","ADDRESS":"","PHONE":"","BIRTHDAY":"","EMPNAME":"Office
+        of Public Works","BRANCHNAME":"","JOBROLE":"","LOCATION":"","JOINEDON":"","JOBTITLE":"User
+        Researcher"},"stats":{"avg_open_rate":0,"avg_click_rate":0},"ip_signup":"87.113.166.80","timestamp_signup":"2020-04-15T16:27:20+00:00","ip_opt":"","timestamp_opt":"","member_rating":2,"last_changed":"2020-04-15T16:27:20+00:00","language":"","vip":false,"email_client":"","location":{"latitude":0,"longitude":0,"gmtoff":0,"dstoff":0,"country_code":"","timezone":""},"source":"API
+        - Generic","tags_count":0,"tags":[],"list_id":"ddfc221de6","_links":[{"rel":"self","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f","method":"GET","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json"},{"rel":"parent","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members","method":"GET","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/CollectionResponse.json","schema":"https://us5.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Members.json"},{"rel":"update","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f","method":"PATCH","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json","schema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PATCH.json"},{"rel":"upsert","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f","method":"PUT","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json","schema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PUT.json"},{"rel":"delete","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f","method":"DELETE"},{"rel":"activity","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f/activity","method":"GET","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Activity/Response.json"},{"rel":"goals","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f/goals","method":"GET","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Goals/Response.json"},{"rel":"notes","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f/notes","method":"GET","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/CollectionResponse.json"},{"rel":"events","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f/events","method":"POST","targetSchema":"https://us5.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Events/POST.json"},{"rel":"delete_permanent","href":"https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members/481a4ea9b3b792c5407de2b10ee6b04f/actions/delete-permanent","method":"POST"}]}'
+    http_version: null
+  recorded_at: Wed, 15 Apr 2020 16:27:20 GMT
+recorded_with: VCR 5.1.0

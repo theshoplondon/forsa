@@ -16,6 +16,7 @@ gem 'autoprefixer-rails'
 
 gem 'wicked'
 gem 'gibbon'
+gem 'sucker_punch'
 
 gem 'devise'
 gem 'rollbar'

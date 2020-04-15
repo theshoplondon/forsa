@@ -66,7 +66,9 @@ feature 'A new member joins' do
     # And I fill in my declaration
     fill_in 'Sign your application by typing your name', with: 'Mick Memberapplication'
 
-    click_button 'Finish'
+    VCR.use_cassette('mail_chimp_feature_subscribe') do
+      click_button 'Finish'
+    end
 
     # Then I see a temporary finishing page
     expect(page).to have_content 'Application complete'

@@ -18,6 +18,8 @@ module MembershipApplications
       @membership_application.assign_attributes(step_params)
 
       render_wizard(@membership_application)
+
+      SubscribeJob.perform_async(@membership_application.id) if @membership_application.completed?
     end
 
     private
