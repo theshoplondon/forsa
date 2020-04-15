@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :membership_application do
-    sequence(:email) { |n| "person#{n}@example.com" }
+    sequence(:email) { |n| "person#{n}@zephyros-systems.co.uk" }
 
     first_name { 'Natalie' }
 

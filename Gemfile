@@ -15,9 +15,9 @@ gem 'foundation-rails'
 gem 'autoprefixer-rails'
 
 gem 'wicked'
+gem 'gibbon'
 
 gem 'devise'
-
 gem 'rollbar'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -27,12 +27,16 @@ group :development, :test do
   # Gems with generators that need to remain accessible go here
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  # Gems needed in development and on CI
+  gem 'dotenv-rails'
 end
 
 group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec_junit_formatter'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
