@@ -85,4 +85,29 @@ RSpec.describe MembershipApplication, type: :model do
       it { is_expected.to be_valid }
     end
   end
+
+  describe '#completed?' do
+    let(:application) { create :membership_application, "step_#{step.underscore}".to_sym }
+
+    subject { application.completed? }
+
+    context 'we are not yet at declaration' do
+      let(:step) { 'contact-details' }
+      it { is_expected.to be false }
+    end
+
+    context 'we are at the declaration step' do
+      context 'but it is not saved' do
+        let(:step) { 'your-subscription-rate' }
+        before { application.current_step = 'declaration' }
+
+        it { is_expected.to be false }
+      end
+      context 'and it is saved' do
+        let(:step) { 'declaration' }
+
+        it { is_expected.to be true }
+      end
+    end
+  end
 end

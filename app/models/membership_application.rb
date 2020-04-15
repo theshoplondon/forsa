@@ -52,6 +52,10 @@ class MembershipApplication < ApplicationRecord
     Steps.instance.reached_step?(self.current_step, step)
   end
 
+  def completed?
+    current_step == 'declaration' && persisted? && !changed?
+  end
+
   def as_json(options = {})
     exclude = %w[declaration current_step]
     super(options).except(*exclude)
