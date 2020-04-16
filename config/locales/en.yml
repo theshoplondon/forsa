@@ -60,6 +60,7 @@ en:
     help_text:
       membership_application:
         email: 'A personal email is better'
+        phone_number: 'Your mobile number is best'
         pay_rate: 'If the amount varies, use an average.'
         payroll_number: 'Found on your payslip'
         declaration: 'This must be "%{full_name}"'
@@ -73,10 +74,16 @@ en:
             We want to be able to communicate with you effectively, inside and outside of your workplace.
             Some employers use filters to block union emails, or you might change jobs in the future,
             so you may not receive our emails if you use your work email.
+        phone_number:
+          link: '(why?)'
+          content:
+            We want to be able to communicate with you effectively, inside and outside of your workplace.
+            The majority of our communication will be by email but there may be times when we need to call you,
+            and a mobile number is best.
         payroll_number:
           link: '(why do we need this?)'
           content:
-            This helps us with the administration of deducting your union subscription fee each month.
+            This helps us with the administration of your union subscription fee.
         home_address:
           link: 'Why do we need this?'
           content:
