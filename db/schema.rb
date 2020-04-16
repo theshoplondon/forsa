@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_161445) do
+ActiveRecord::Schema.define(version: 2020_04_16_113640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_161445) do
     t.decimal "hours_per_week"
     t.string "home_address"
     t.string "gender"
+    t.string "school_roll_number"
+    t.string "technical_grade"
   end
 
   create_table "users", force: :cascade do |t|
