@@ -1,0 +1,102 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://us5.api.mailchimp.com/3.0/lists/ddfc221de6/members
+    body:
+      encoding: UTF-8
+      string: '{"email_address":"person2@zephyros-systems.co.uk","status":"pending","merge_fields":{"FNAME":"Natalie","LNAME":"Zurbman","EMPNAME":"Office
+        of Public Works","JOBTITLE":"Accountant","SIGNED_ON":"15/04/2020"}}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Basic YXBpa2V5OjA4ZjI1OWY0M2NkZmYzNTU5Y2ZkMzEzN2E1MzUzZTdmLXVzNQ==
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - openresty
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      Content-Length:
+      - '230'
+      X-Request-Id:
+      - d66872d1-c272-4cb1-b8c5-c2daf4cd9b26
+      Link:
+      - <https://us5.api.mailchimp.com/schema/3.0/ProblemDetailDocument.json>; rel="describedBy"
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 15 Apr 2020 13:58:14 GMT
+      Connection:
+      - close
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+      - _mcid=1.cba35bf8e5b6ef61ec979c79c1022bdf.ad7bf6c582a2ef0f2a1b0223c4e839bc01280da991a99ec4fbead61aee3d8fc3;
+        expires=Thu, 15-Apr-2021 13:58:14 GMT; Max-Age=31536000; path=/; domain=.mailchimp.com
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Member
+        Exists","status":400,"detail":"person2@zephyros-systems.co.uk is already a
+        list member. Use PUT to insert or update list members.","instance":"d66872d1-c272-4cb1-b8c5-c2daf4cd9b26"}'
+    http_version: null
+  recorded_at: Wed, 15 Apr 2020 13:58:14 GMT
+- request:
+    method: post
+    uri: https://us5.api.mailchimp.com/3.0/lists/ddfc221de5/members
+    body:
+      encoding: UTF-8
+      string: '{"email_address":"person2@zephyros-systems.co.uk","status":"pending","merge_fields":{"FNAME":"Natalie","LNAME":"Zurbman","EMPNAME":"Office
+        of Public Works","JOBTITLE":"Accountant","SIGNED_ON":"15/04/2020"}}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Basic YXBpa2V5OjA4ZjI1OWY0M2NkZmYzNTU5Y2ZkMzEzN2E1MzUzZTdmLXVzNQ==
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - openresty
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Request-Id:
+      - 023a2588-8d29-432e-a2a1-e75de0fbcd3c
+      Link:
+      - <https://us5.api.mailchimp.com/schema/3.0/ProblemDetailDocument.json>; rel="describedBy"
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 15 Apr 2020 15:36:09 GMT
+      Content-Length:
+      - '234'
+      Connection:
+      - close
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+      - _mcid=1.4af6e825727da792bcde18d82b120c3b.cdb0482c692eb40278f73c289d0d34dbc42c5fd75ccd173b47904d34f5c85acb;
+        expires=Thu, 15-Apr-2021 15:36:09 GMT; Max-Age=31536000; path=/; domain=.mailchimp.com
+    body:
+      encoding: UTF-8
+      string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"023a2588-8d29-432e-a2a1-e75de0fbcd3c"}'
+    http_version: null
+  recorded_at: Wed, 15 Apr 2020 15:36:09 GMT
+recorded_with: VCR 5.1.0
