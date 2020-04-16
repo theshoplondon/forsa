@@ -1,5 +1,7 @@
 @import 'settings';
 
+$forsa-button-label-font-size: 1.1rem;
+
 .content {
   fieldset {
     margin-bottom: $fieldset-padding;
@@ -7,7 +9,7 @@
 
   label {
     font-family: $body-font-family-bold;
-    font-size: 1.1rem;
+    font-size: $forsa-button-label-font-size;
     margin-bottom: 0.5rem;
   }
 }
@@ -22,6 +24,8 @@ input {
     font-family: $body-font-family-bold;
     font-weight: bold;
     padding: $button-padding;
+    margin: $global-margin 0 ($global-margin * 2) 0;
+    font-size: $forsa-button-label-font-size;
     clear: both;
   }
 }
