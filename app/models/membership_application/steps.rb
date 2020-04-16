@@ -5,7 +5,8 @@ class MembershipApplication
     PARAMS = ActiveSupport::OrderedHash[{
       'about-you'              => [:title, :first_name, :last_name, :gender, :date_of_birth],
       'contact-details'        => [:email, :phone_number, :home_address],
-      'your-work'              => [:job_title, :employer, :work_address, :payroll_number],
+      'your-work'              => [:job_title, :employer, :work_address, :payroll_number,
+                                   :school_roll_number, :technical_grade],
       'your-subscription-rate' => [:pay_rate, :pay_unit, :hours_per_week],
       'declaration'            => [:declaration]
     }]

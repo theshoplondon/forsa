@@ -19,6 +19,21 @@
     <%= help_for :payroll_number %>
     <%= f.text_field :payroll_number, placeholder: true %>
 
+    <%= f.label :technical_grade %>
+    <%= form_field_errors f, :technical_grade %>
+    <%= help_for :technical_grade %>
+
+    <fieldset class="radio-group-vertical">
+      <%= f.collection_radio_buttons :technical_grade, MembershipApplication::TECHNICAL_GRADES, :first, :last do |b| %>
+        <% b.label { b.radio_button + b.text } %>
+      <% end %>
+    </fieldset>
+
+    <%= f.label :school_roll_number %>
+    <%= form_field_errors f, :school_roll_number %>
+    <%= help_for :school_roll_number %>
+    <%= f.text_field :school_roll_number, placeholder: true %>
+
     <%= f.submit 'Next' %>
   </fieldset>
 <% end %>

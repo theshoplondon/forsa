@@ -49,11 +49,14 @@ en:
         pay_rate: 'What are you paid?'
         declaration: 'Sign your application by typing your name'
         hours_per_week: 'How many hours a week do you work?'
+        technical_grade: 'If you work in the Civil Service what is your grade?'
+        school_roll_number: 'If you work in a school or college, what is your school roll number?'
     placeholder:
       membership_application:
         email: "natalie@example.com"
         first_name: 'Natalie'
         payroll_number: 'E.g. 12457843'
+        school_roll_number: 'E.g. 12345B'
     help_text:
       membership_application:
         email: 'A personal email is better'
@@ -61,6 +64,7 @@ en:
         payroll_number: 'Found on your payslip'
         declaration: 'This must be "%{full_name}"'
         hours_per_week: 'Take the average over the last month.'
+        school_roll_number: 'Five digits followed by a letter – found on your payslip'
     help_dropdown:
       membership_application:
         email:
@@ -82,3 +86,8 @@ en:
           content:
             This helps us monitor gender equality and inclusiveness in the union.
             The information provided will be used solely for statistical purposes.
+        school_roll_number:
+          link: '(why do we need this?)'
+          content:
+            We need your roll number to identify your work location
+            as defined by the Department of Education and Skills.

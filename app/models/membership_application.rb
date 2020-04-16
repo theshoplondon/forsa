@@ -1,4 +1,6 @@
 class MembershipApplication < ApplicationRecord
+  after_initialize :init
+
   validates :first_name, presence: true
   validates :email, presence: true, format: {
     with: /\A.+@.+\..+\z/i,
@@ -21,6 +23,15 @@ class MembershipApplication < ApplicationRecord
   validates :work_address, presence: true, if: -> { reached_step?('your-work') }
   validates :payroll_number, presence: true, if: -> { reached_step?('your-work') }
 
+  TECHNICAL_GRADES = {
+    'clerical'  => 'Clerical Officer',
+    'executive' => 'Executive Officer',
+    'other'     => 'Other grade',
+    'na_unsure' => 'Not sure/doesn\'t apply'
+  }.freeze
+  validates :technical_grade, inclusion: { in: TECHNICAL_GRADES.keys }, if: -> { reached_step?('your-work') }
+  validates :school_roll_number, allow_blank: true, format: /[0-9]{5}[A-Z][a-z]/, if: -> { reached_step?('your-work') }
+
   # Step 4: Your subscription rate
   validates :pay_rate, presence: true, numericality: true, if: -> { reached_step?('your-subscription-rate') }
   def pay_rate=(value)
@@ -38,6 +49,10 @@ class MembershipApplication < ApplicationRecord
 
   # Scopes
   scope :signed, -> { where(current_step: 'declaration') }
+
+  def init
+    self.technical_grade = TECHNICAL_GRADES.keys.last # N/A or unsure
+  end
 
   def declaration_is_signed
     errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
