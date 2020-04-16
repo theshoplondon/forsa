@@ -5,14 +5,14 @@ header {
   margin-top: 1rem;
   margin-bottom: 1rem;
 
+  .logo {
+    height: 170px;
+  }
   @include breakpoint(small only) {
     .logo { height: 120px; }
   }
   @include breakpoint(medium only) {
     .logo { height: 140px; }
-  }
-  @include breakpoint(large only) {
-    .logo { height: 170px; }
   }
 }
 
@@ -20,9 +20,15 @@ header {
   color: $dark-gray;
 }
 
-.callout.secondary {
-  background-color: $light-gray;
-  color: $black;
+.callout {
+  &.primary {
+    margin-bottom: $global-margin * 2;
+  }
+
+  &.secondary {
+    background-color: $light-gray;
+    color: $black;
+  }
 }
 
 footer {
@@ -42,5 +48,10 @@ footer {
 
   a {
     color: $white;
+
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
   }
 }
