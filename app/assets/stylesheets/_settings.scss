@@ -399,9 +399,9 @@ $drilldown-arrow-size: 6px;
 $dropdown-padding: 1rem;
 $dropdown-background: $body-background;
 $dropdown-border: 1px solid $medium-gray;
-$dropdown-font-size: 1rem;
+$dropdown-font-size: 0.9rem;
 $dropdown-width: 300px;
-$dropdown-radius: $global-radius;
+$dropdown-radius: $global-forms-radius;
 $dropdown-sizes: (
   tiny: 100px,
   small: 200px,
