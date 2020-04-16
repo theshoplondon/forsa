@@ -38,6 +38,8 @@ en:
           attributes:
             gender:
               inclusion: 'please select a value from the list'
+            school_roll_number:
+              invalid: 'should be five digits followed by a letter'
   helpers:
     label:
       membership_application:

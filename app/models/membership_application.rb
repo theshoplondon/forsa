@@ -30,7 +30,7 @@ class MembershipApplication < ApplicationRecord
     'na_unsure' => 'Not sure/doesn\'t apply'
   }.freeze
   validates :technical_grade, inclusion: { in: TECHNICAL_GRADES.keys }, if: -> { reached_step?('your-work') }
-  validates :school_roll_number, allow_blank: true, format: /[0-9]{5}[A-Z][a-z]/, if: -> { reached_step?('your-work') }
+  validates :school_roll_number, allow_blank: true, format: /[0-9]{5}[A-Za-z]/, if: -> { reached_step?('your-work') }
 
   # Step 4: Your subscription rate
   validates :pay_rate, presence: true, numericality: true, if: -> { reached_step?('your-subscription-rate') }

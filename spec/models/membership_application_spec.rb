@@ -65,6 +65,28 @@ RSpec.describe MembershipApplication, type: :model do
     end
   end
 
+  context 'the your-work step' do
+    subject(:application) do
+      build :membership_application, :step_your_work, school_roll_number: school_roll_number
+    end
+
+    context 'a bad school_roll_number is given' do
+      let(:school_roll_number) { '123' }
+
+      it 'tells us how to fix it' do
+        expect(application).not_to be_valid
+        expect(application.errors[:school_roll_number]).to eql(
+          ['should be five digits followed by a letter']
+        )
+      end
+    end
+
+    context 'a good school_roll_number is given' do
+      let(:school_roll_number) { '20771J' }
+      it { is_expected.to be_valid }
+    end
+  end
+
   context 'the final step requires a signature' do
     let(:step) { 'declaration' }
 
