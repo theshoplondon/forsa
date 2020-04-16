@@ -3,10 +3,12 @@
 <%= form_for @membership_application, url: wizard_path do |f| %>
   <fieldset>
     <%= f.label :email %>
+    <%= help_for :email %>
     <%= form_field_errors f, :email %>
     <%= f.text_field :email %>
 
     <%= f.label :phone_number %>
+    <%= help_for :phone_number %>
     <%= form_field_errors f, :phone_number %>
     <%= f.text_field :phone_number %>
 
