@@ -20,6 +20,11 @@ class MailingListSubscriber
         LNAME: member.last_name,
         EMPNAME: member.employer,
         JOBTITLE: member.job_title,
+        SUBRATE: SubscriptionRate.new(
+          member.pay_rate,
+          member.pay_unit,
+          member.hours_per_week
+        ).monthly_estimate,
         SIGNED_ON: member.updated_at.strftime('%d/%m/%Y')
       }
     }

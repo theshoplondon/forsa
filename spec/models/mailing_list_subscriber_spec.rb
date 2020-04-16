@@ -15,13 +15,13 @@ RSpec.describe MailingListSubscriber do
       vcr: { cassette_name: 'user_not_already_subscribed', record: :new_episodes } \
     do
       before do
-        membership_application.email = 'thisisme@zephyros-systems.co.uk'
+        membership_application.email = 'thisisme3@zephyros-systems.co.uk'
       end
 
       it 'successfully adds new members as "pending" to MailChimp' do
         subscriber.subscribe!
 
-        assert_subscribed membership_application.email, 'Natalie', 'Zurbman', 'Office of Public Works'
+        assert_subscribed membership_application.email, 'Natalie', 'Zurbman', 'Office of Public Works', 23.33
       end
     end
 
@@ -36,7 +36,7 @@ RSpec.describe MailingListSubscriber do
     context 'there is a MailChimp error',
       vcr: { cassette_name: 'mail_chimp_error', record: :new_episodes } \
     do
-      let(:membership_application) { create :membership_application, :step_new }
+      let(:membership_application) { create :membership_application, :step_your_subscription_rate }
       it 'raises via Gibbon' do
         expect { subscriber.subscribe! }.to raise_error(
           Gibbon::MailChimpError, /the server responded with status 400/
@@ -47,7 +47,7 @@ RSpec.describe MailingListSubscriber do
 
   private
 
-  def assert_subscribed(email, first_name, last_name, employer_name)
+  def assert_subscribed(email, first_name, last_name, employer_name, monthly_estimate)
     email_hash = Digest::MD5.hexdigest email
     gibbon = Gibbon::Request.new
     list_id = ENV['MAILCHIMP_LIST_ID']
@@ -58,5 +58,6 @@ RSpec.describe MailingListSubscriber do
     assert_equal first_name, response.body['merge_fields']['FNAME']
     assert_equal last_name, response.body['merge_fields']['LNAME']
     assert_equal employer_name, response.body['merge_fields']['EMPNAME']
+    assert_equal monthly_estimate, response.body['merge_fields']['SUBRATE']
   end
 end
