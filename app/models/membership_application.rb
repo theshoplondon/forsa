@@ -4,7 +4,6 @@ class MembershipApplication < ApplicationRecord
     with: /\A.+@.+\..+\z/i,
     message: 'Enter a valid email address'
   }
-  validates :email, uniqueness: true, on: :create
 
   # Step 1: About you
   GENDER = %w[male female non-binary other]
