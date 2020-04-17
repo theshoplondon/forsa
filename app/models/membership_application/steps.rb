@@ -7,7 +7,7 @@ class MembershipApplication
       'contact-details'        => [:email, :phone_number, :home_address],
       'your-work'              => [:job_title, :employer, :work_address, :payroll_number,
                                    :school_roll_number, :technical_grade],
-      'your-subscription-rate' => [:pay_rate, :pay_unit, :hours_per_week],
+      'your-subscription-rate' => [:pay_rate, :pay_unit, :hours_per_week, :applicant_saw_monthly_estimate],
       'declaration'            => [:declaration]
     }]
 

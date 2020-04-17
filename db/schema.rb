@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_113640) do
+ActiveRecord::Schema.define(version: 2020_04_17_124144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_113640) do
     t.string "gender"
     t.string "school_roll_number"
     t.string "technical_grade"
+    t.decimal "applicant_saw_monthly_estimate"
   end
 
   create_table "users", force: :cascade do |t|
