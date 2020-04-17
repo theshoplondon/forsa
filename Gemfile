@@ -33,7 +33,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'webdrivers'
+  gem 'capybara-selenium'
   gem 'launchy'
   gem 'rspec_junit_formatter'
   gem 'vcr'

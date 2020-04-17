@@ -4,7 +4,7 @@ require 'rails_helper'
 # I want to join Fórsa
 # So that my rights can be protected
 feature 'A new member joins' do
-  scenario 'everything goes to plan' do
+  scenario 'everything goes to plan', js: true do
     # When I go to the front page
     visit '/'
     expect(page).to have_content('Join Today')
@@ -80,6 +80,7 @@ feature 'A new member joins' do
     expect(membership_application.home_address).to eql('20 Plankton Road')
     expect(membership_application.pay_unit).to eql('year')
     expect(membership_application.pay_rate).to eql(BigDecimal(29250))
+    expect(membership_application.applicant_saw_monthly_estimate).to eql(19.50)
     expect(membership_application.current_step).to eql('declaration')
   end
 
