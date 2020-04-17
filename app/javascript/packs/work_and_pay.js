@@ -50,6 +50,7 @@ function monthlyEstimateErrored(error) {
 
 function monthlyEstimateArrived(value) {
   $('#monthly-estimate-value').text(value)
+  $('#membership_application_applicant_saw_monthly_estimate').val(value)
   $('.monthly-estimate').removeClass('hide')
   showSpinner(false)
 }
