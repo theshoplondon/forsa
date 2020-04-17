@@ -30,6 +30,29 @@ input {
   }
 }
 
+.input-euro {
+  position: relative;
+  &:before {
+    position: absolute;
+    z-index: 1;
+    top: 1px;
+    left: 1px;
+    content: '€';
+    padding-top: 0.4rem;
+    color: $dark-gray;
+    background-color: $light-gray;
+    width: 2rem;
+    height: 2.3rem;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  input {
+    padding-left: 2.5rem;
+  }
+}
+
 .field_with_errors {
   input,
   textarea,
@@ -124,7 +147,7 @@ input {
   .spinner-overlay {
     .lds-dual-ring {
       margin-left: 45%;
-      margin-top: 1rem;
+      margin-top: 2.5rem;
     }
     position: absolute;
     height: 100%;

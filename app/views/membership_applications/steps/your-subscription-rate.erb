@@ -5,7 +5,9 @@
     <%= f.label :pay_rate %>
     <%= form_field_errors f, :pay_rate %>
     <%= help_for :pay_rate %>
-    <%= f.text_field :pay_rate %>
+    <span class="input-euro">
+      <%= f.text_field :pay_rate %>
+    </span>
 
     <fieldset class="radio-group-horizontal">
       <label class="side-note">Every:</label>

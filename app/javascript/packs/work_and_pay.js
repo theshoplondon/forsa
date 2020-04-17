@@ -1,6 +1,12 @@
 import $ from 'jquery'
 import Rails from '@rails/ujs'
 
+const KEY_EURO = 8364
+const KEY_POUND = 163
+const KEY_COMMA = 44
+
+const PREVENT_KEYS = [KEY_COMMA, KEY_EURO, KEY_POUND]
+
 function payUnitValue() {
   return $('input[name="membership_application[pay_unit]"]:checked').val()
 }
@@ -67,8 +73,14 @@ $(document).on('turbolinks:load', function() {
     estimateInputChanged(1) // Instant when we change unit
   })
 
-  $('input[name="membership_application[pay_rate]"]').on('change keyup', () => estimateInputChanged())
-  $('input[name="membership_application[hours_per_week]"]').on('change keyup', () => estimateInputChanged())
+  $('input[name="membership_application[pay_rate]"]').on('change keypress', function(event) {
+    if (PREVENT_KEYS.includes(event.keyCode)) {
+      event.preventDefault()
+      return
+    }
+    estimateInputChanged()
+  })
+  $('input[name="membership_application[hours_per_week]"]').on('change keypress', () => estimateInputChanged())
 
   setHoursPerWeekVisibility()
 })
