@@ -6,7 +6,7 @@ class MembershipApplication
       'about-you'              => [:title, :first_name, :last_name, :gender, :date_of_birth],
       'contact-details'        => [:email, :phone_number, :home_address],
       'your-work'              => [:job_title, :employer, :work_address, :payroll_number,
-                                   :school_roll_number, :technical_grade],
+                                   :department_section, :school_roll_number, :technical_grade],
       'your-subscription-rate' => [:pay_rate, :pay_unit, :hours_per_week, :applicant_saw_monthly_estimate],
       'declaration'            => [:declaration]
     }]
