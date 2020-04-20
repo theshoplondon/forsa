@@ -51,7 +51,11 @@ class MembershipApplication < ApplicationRecord
   scope :signed, -> { where(current_step: 'declaration') }
 
   def init
-    self.technical_grade = TECHNICAL_GRADES.keys.last # N/A or unsure
+    self.technical_grade ||= TECHNICAL_GRADES.keys.last # N/A or unsure
+  end
+
+  def clerical?
+    technical_grade == 'clerical'
   end
 
   def declaration_is_signed

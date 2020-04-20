@@ -17,9 +17,13 @@ function setHoursPerWeekVisibility() {
   $('.hours-per-week').toggleClass('hide', payUnitValue() !== 'hour')
 }
 
+function clericalRateValue() {
+  return $('input[name="membership_application[technical_grade]"]').val() === 'clerical'
+}
+
 function getMonthlyEstimate() {
   fetch(
-    `/subscription-rate?pay_unit=${payUnitValue()}&pay_rate=${payValue('pay_rate')}&hours_per_week=${payValue('hours_per_week')}`,
+    `/subscription-rate?pay_unit=${payUnitValue()}&pay_rate=${payValue('pay_rate')}&hours_per_week=${payValue('hours_per_week')}&clerical_rate=${clericalRateValue()}`,
     {
       method: 'get',
       headers: {
@@ -29,7 +33,7 @@ function getMonthlyEstimate() {
     credentials: 'same-origin'
   }).then(function(response) {
     if(response.ok) {
-      response.json().then(data => monthlyEstimateArrived(data.monthly_estimate))
+      response.json().then(data => monthlyEstimateArrived(data))
     } else {
       response.json().then(data => monthlyEstimateErrored(data.error))
     }
@@ -48,9 +52,10 @@ function monthlyEstimateErrored(error) {
   console.log(`Error getting monthly estimate: ${error}`)
 }
 
-function monthlyEstimateArrived(value) {
-  $('#monthly-estimate-value').text(value)
-  $('#membership_application_applicant_saw_monthly_estimate').val(value)
+function monthlyEstimateArrived(data) {
+  $('#monthly-estimate-value').text(data.monthly_estimate)
+  $('#subscription-rate').text(data.percentage)
+  $('#membership_application_applicant_saw_monthly_estimate').val(data.monthly_estimate)
   $('.monthly-estimate').removeClass('hide')
   showSpinner(false)
 }

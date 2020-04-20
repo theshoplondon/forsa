@@ -5,8 +5,16 @@ class SubscriptionRatesController < ApplicationController
   def show
     respond_to do |format|
       format.json do
-        rate = SubscriptionRate.new(params[:pay_rate], params[:pay_unit], params[:hours_per_week])
-        render json: { 'monthly_estimate' => rate.monthly_estimate }
+        rate = SubscriptionRate.new(
+          params[:pay_rate],
+          params[:pay_unit],
+          hours_per_week: params[:hours_per_week],
+          clerical_rate: params[:clerical_rate]&.strip == 'true'
+        )
+        render json: {
+          'monthly_estimate' => rate.monthly_estimate,
+          'percentage' => rate.percentage
+        }
       end
     end
   end
