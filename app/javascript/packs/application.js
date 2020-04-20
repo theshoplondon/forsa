@@ -22,4 +22,4 @@ $(document).on('turbolinks:load', function() {
   $(document).foundation()
 })
 
-require('packs/work_and_pay')
+require('packs/your_subscription_rate')
