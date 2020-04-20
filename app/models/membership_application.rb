@@ -54,6 +54,10 @@ class MembershipApplication < ApplicationRecord
     self.technical_grade ||= TECHNICAL_GRADES.keys.last # N/A or unsure
   end
 
+  def clerical?
+    technical_grade == 'clerical'
+  end
+
   def declaration_is_signed
     errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
   end

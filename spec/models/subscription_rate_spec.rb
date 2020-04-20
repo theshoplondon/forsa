@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SubscriptionRate do
-  subject(:rate) { SubscriptionRate.new(pay_rate, pay_unit, hours_per_week) }
+  subject(:rate) { SubscriptionRate.new(pay_rate, pay_unit, hours_per_week: hours_per_week, clerical_rate: clerical_rate) }
 
-  let(:hours_per_week) { nil } # Not ordinarily required
+  let(:hours_per_week) { nil }   # Not ordinarily required
+  let(:clerical_rate)  { false } # Not ordinarily true
 
   describe '#monthly_estimate' do
     context 'annual salary' do
@@ -14,6 +15,14 @@ RSpec.describe SubscriptionRate do
 
         it 'calculates the rate as fixed 0.8% of annual earnings' do
           expect(rate.monthly_estimate).to eql('12.00') # (18000 * 0.8/100) / 12
+        end
+
+        context 'as a clerical worker' do
+          let(:clerical_rate) { true }
+
+          it 'calculates the rate as fixed 1% of annual earnings' do
+            expect(rate.monthly_estimate).to eql('15.00') # (18000 * 1.0/100) / 12
+          end
         end
       end
 
@@ -61,7 +70,7 @@ RSpec.describe SubscriptionRate do
 
       context 'no hours_per_week were assigned' do
         it 'raises an ArgumentError' do
-          expect { SubscriptionRate.new(pay_rate, pay_unit, nil) }.to raise_error(
+          expect { SubscriptionRate.new(pay_rate, pay_unit, hours_per_week: nil) }.to raise_error(
             ArgumentError, /pay_unit of 'hour' given, hours_per_week required/
           )
         end
@@ -69,7 +78,7 @@ RSpec.describe SubscriptionRate do
 
       context 'hours_per_week was blank' do
         it 'raises an ArgumentError' do
-          expect { SubscriptionRate.new(pay_rate, pay_unit, '') }.to raise_error(
+          expect { SubscriptionRate.new(pay_rate, pay_unit, hours_per_week: '') }.to raise_error(
             ArgumentError, /pay_unit of 'hour' given, hours_per_week required/
           )
         end

@@ -20,14 +20,19 @@ class MailingListSubscriber
         LNAME: member.last_name,
         EMPNAME: member.employer,
         JOBTITLE: member.job_title,
-        SUBRATE: SubscriptionRate.new(
-          member.pay_rate,
-          member.pay_unit,
-          member.hours_per_week
-        ).monthly_estimate,
+        SUBRATE: subscription_rate.monthly_estimate,
         SIGNED_ON: member.updated_at.strftime('%d/%m/%Y')
       }
     }
+  end
+
+  def subscription_rate
+    @subscription_rate ||= SubscriptionRate.new(
+      member.pay_rate,
+      member.pay_unit,
+      hours_per_week: member.hours_per_week,
+      clerical_rate: member.clerical?
+    )
   end
 
   private

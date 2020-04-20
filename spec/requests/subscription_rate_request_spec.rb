@@ -31,17 +31,23 @@ RSpec.describe '/subscription-rate', type: :request do
 
     context 'parameters are all present' do
       context 'and do not have any special characters' do
-        let(:params) { { 'pay_rate': '15.50', 'pay_unit': 'hour', hours_per_week: '25' } }
+        let(:params) { { 'pay_rate': '15.50', 'pay_unit': 'hour', hours_per_week: '25', clerical_rate: 'false' } }
 
-        it 'gets us some JSON with a monthly_estimate in it' do
-          expect(json).to eql('monthly_estimate' => '13.43')
+        it 'gets us some JSON with a monthly_estimate and the percentage rate in it' do
+          expect(json).to eql('monthly_estimate' => '13.43', 'percentage' => 0.8)
+        end
+
+        context 'and is at clerical rate' do
+          let(:params) { { 'pay_rate': '15.50', 'pay_unit': 'hour', hours_per_week: '25', clerical_rate: 'true' } }
+
+          it { is_expected.to eql('monthly_estimate' => '16.79', 'percentage' => 1.0) }
         end
       end
 
       context 'and have special characters' do
         let(:params) { { 'pay_rate': '£€15.50', 'pay_unit': 'hour', hours_per_week: '25' } }
         it 'strips them before processing' do
-          expect(json).to eql('monthly_estimate' => '13.43')
+          expect(json).to eql('monthly_estimate' => '13.43', 'percentage' => 0.8)
         end
       end
     end
