@@ -80,7 +80,7 @@ $(document).on('turbolinks:load', function() {
   })
 
   $('input[name="membership_application[pay_rate]"]').on('change keypress', function(event) {
-    if (PREVENT_KEYS.includes(event.keyCode)) {
+    if (PREVENT_KEYS.indexOf(event.keyCode) > -1) {
       event.preventDefault()
       return
     }
