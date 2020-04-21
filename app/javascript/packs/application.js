@@ -8,6 +8,9 @@ require("jquery")
 require("turbolinks").start()
 
 import {Foundation} from 'foundation-sites';
+// IE11 support - gets use 'fetch' which uses Promise
+import 'promise-polyfill/src/polyfill'
+import 'whatwg-fetch'
 
 Foundation.addToJquery($)
 
