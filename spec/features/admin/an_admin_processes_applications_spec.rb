@@ -1,5 +1,10 @@
 require 'rails_helper'
 
+#
+# Note this file is only for browser-based admin interactions. For API interactions,
+# see the request specs.
+#
+
 def given_i_am_logged_in_as_an_admin
   User.create(email: 'admin@forsa.ie', password: 'verystr0ngpassword')
 
