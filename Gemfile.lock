@@ -240,6 +240,9 @@ GEM
       concurrent-ruby (~> 1.0)
     thor (1.0.1)
     thread_safe (0.3.6)
+    tiddle (1.4.0)
+      activerecord (>= 4.2.0)
+      devise (>= 4.0.0.rc1, < 5)
     tilt (2.0.10)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -296,6 +299,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sucker_punch
+  tiddle
   turbolinks (~> 5)
   tzinfo-data
   vcr

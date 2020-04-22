@@ -19,6 +19,7 @@ gem 'gibbon'
 gem 'sucker_punch'
 
 gem 'devise'
+gem 'tiddle'
 gem 'rollbar'
 
 # Reduces boot times through caching; required in config/boot.rb
