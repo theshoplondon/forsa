@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_093903) do
+ActiveRecord::Schema.define(version: 2020_04_22_094752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authentication_tokens", force: :cascade do |t|
+    t.string "body"
+    t.bigint "user_id", null: false
+    t.datetime "last_used_at"
+    t.integer "expires_in"
+    t.string "ip_address"
+    t.string "user_agent"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["body"], name: "index_authentication_tokens_on_body"
+    t.index ["user_id"], name: "index_authentication_tokens_on_user_id"
+  end
 
   create_table "membership_applications", force: :cascade do |t|
     t.string "first_name"
@@ -57,4 +70,5 @@ ActiveRecord::Schema.define(version: 2020_04_20_093903) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "authentication_tokens", "users"
 end
