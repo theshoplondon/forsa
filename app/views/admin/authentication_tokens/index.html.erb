@@ -2,12 +2,13 @@
 
 <h1>My Active Tokens</h1>
 
+<% if @tokens.any? %>
 <table class="tokens">
   <thead>
     <tr>
       <th class="digest">Token digest</th>
       <th class="last-used">Last used</th>
-      <th class="created">Created</th>
+      <th class="created" colspan="2">Created</th>
     </tr>
   </thead>
     <% @tokens.each do |token| %>
@@ -15,9 +16,15 @@
         <td class="digest"><%= token.body %></td>
         <td class="last-used"><%= token.last_used_at %></td>
         <td class="created"><%= token.created_at %></td>
+        <td class="action">
+          <%= link_to 'Remove', admin_authentication_token_path(token), class: 'button', method: :delete %>
+        </td>
       </tr>
     <% end %>
 </table>
+<% else %>
+  <p class="callout">There are no active tokens for this user.</p>
+<% end %>
 
 <%= form_with url: admin_authentication_tokens_path do |f| %>
   <%= f.submit 'Create new' %>

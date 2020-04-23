@@ -45,7 +45,7 @@ end
 feature 'self-serve API tokens' do
   include TokenAuthenticationHelpers
 
-  scenario 'I see my last unexpired token and create a new one' do
+  scenario 'I see my last unexpired token, expire it, and create a new one' do
     user = given_i_am_logged_in_as_an_admin
 
     # Given I have an active token
@@ -58,6 +58,12 @@ feature 'self-serve API tokens' do
     # Then I see my token digests
     expect(page).to have_content 'My Active Tokens'
     expect(page).to have_content token.body
+
+    # When I remove the only token
+    click_link 'Remove'
+
+    # Then I should see the list is empty
+    expect(page).to have_content('There are no active tokens for this user.')
 
     # When I create a new one
     expect(Devise.token_generator).to receive(:generate).and_return('a_friendly_token')

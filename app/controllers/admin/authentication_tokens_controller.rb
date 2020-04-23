@@ -12,4 +12,9 @@ class Admin::AuthenticationTokensController < ApplicationController
       notice: I18n.t('activerecord.authentication_tokens.created', token: friendly_token)
     )
   end
+
+  def destroy
+    AuthenticationToken.find(params[:id]).destroy
+    redirect_to admin_authentication_tokens_path
+  end
 end
