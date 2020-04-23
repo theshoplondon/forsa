@@ -1,18 +1,8 @@
 require 'rails_helper'
 
-def valid_api_credentials
-  email = 'a@b.c'
-
-  user = create :user, email: email
-  request = double('request', remote_ip: '127.0.0.1', user_agent: 'micks-download-agent')
-  token = Tiddle.create_and_return_token(user, request)
-  {
-    'X-USER-EMAIL' => email,
-    'X-USER-TOKEN' => token
-  }
-end
-
 RSpec.describe '/admin/membership-applications as JSON', type: :request do
+  include TokenAuthenticationHelpers
+
   let(:params)  { { } }
   let(:headers) { { 'Accept' => 'application/json' } }
 
@@ -42,7 +32,7 @@ RSpec.describe '/admin/membership-applications as JSON', type: :request do
     end
 
     before do
-      get '/admin/membership-applications', params: params, headers: headers.merge(valid_api_credentials)
+      get '/admin/membership-applications', params: params, headers: headers.merge(make_valid_api_credentials)
     end
 
     context 'no date params are given' do

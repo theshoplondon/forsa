@@ -31,7 +31,11 @@
 
 en:
   main_title: "Join Fórsa"
+
   activerecord:
+    authentication_tokens:
+      created: 'Token created. Copy this now as it is the last time you will be able to see it: %{token}'
+
     errors:
       models:
         membership_application:
