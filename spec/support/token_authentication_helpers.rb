@@ -1,3 +1,5 @@
+##
+# Helpers for logging in as an API user
 module TokenAuthenticationHelpers
   def make_valid_api_credentials(user = nil)
     user ||= create :user, email: 'a@b.c'

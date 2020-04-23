@@ -1,4 +1,7 @@
 class MembershipApplication
+  ##
+  # The main place we define steps and their acceptable parameters,
+  # with some helper methods to tell us where we are.
   class Steps
     include Singleton
 
@@ -22,6 +25,7 @@ class MembershipApplication
 
     def reached_step?(application_step, step)
       return false if application_step.nil?
+
       index_of(application_step) >= index_of(step)
     end
   end

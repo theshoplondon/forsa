@@ -39,6 +39,7 @@ group :test do
   gem 'rspec_junit_formatter'
   gem 'vcr'
   gem 'webmock'
+  gem 'rubocop'
 end
 
 group :development do
