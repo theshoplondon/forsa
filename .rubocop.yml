@@ -5,6 +5,10 @@ Layout/ArgumentAlignment:
   Exclude:
     - 'bin/**/*'
 
+Layout/EmptyLineAfterGuardClause:
+  Exclude:
+    - 'bin/**/*'
+
 Metrics/BlockLength:
   Max: 40
   Exclude:
