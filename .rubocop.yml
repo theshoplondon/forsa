@@ -1,6 +1,10 @@
 Bundler/OrderedGems:
   Enabled: false
 
+Layout/ArgumentAlignment:
+  Exclude:
+    - 'bin/**/*'
+
 Metrics/BlockLength:
   Max: 40
   Exclude:

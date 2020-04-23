@@ -12,7 +12,7 @@ RSpec.describe MailingListSubscriber do
     subject(:subscriber) { MailingListSubscriber.new(membership_application) }
 
     context 'the user isn\'t already subscribed',
-      vcr: { cassette_name: 'user_not_already_subscribed', record: :new_episodes } \
+            vcr: { cassette_name: 'user_not_already_subscribed', record: :new_episodes } \
     do
       before do
         membership_application.email = 'thisisme3@zephyros-systems.co.uk'
@@ -26,7 +26,7 @@ RSpec.describe MailingListSubscriber do
     end
 
     context 'the user is already subscribed',
-      vcr: { cassette_name: 'user_already_subscribed', record: :new_episodes } \
+            vcr: { cassette_name: 'user_already_subscribed', record: :new_episodes } \
     do
       it 'acts without error as the effect is the same' do
         subscriber.subscribe!
@@ -34,7 +34,7 @@ RSpec.describe MailingListSubscriber do
     end
 
     context 'there is a MailChimp error',
-      vcr: { cassette_name: 'mail_chimp_error', record: :new_episodes } \
+            vcr: { cassette_name: 'mail_chimp_error', record: :new_episodes } \
     do
       let(:membership_application) { create :membership_application, :step_your_subscription_rate }
       it 'raises via Gibbon' do

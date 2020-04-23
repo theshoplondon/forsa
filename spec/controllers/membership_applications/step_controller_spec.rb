@@ -12,10 +12,10 @@ RSpec.describe MembershipApplications::StepsController, type: :controller do
       session[:membership_application_id] = membership_application.id
 
       put :update,
-        params: {
-          id: 'declaration',
-          membership_application: { declaration: declaration }
-        }
+          params: {
+            id: 'declaration',
+            membership_application: { declaration: declaration }
+          }
 
       membership_application.reload
     end
