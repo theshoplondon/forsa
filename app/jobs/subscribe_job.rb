@@ -1,3 +1,5 @@
+##
+# Subscribe new applicants to our mailing list
 class SubscribeJob
   include SuckerPunch::Job
 

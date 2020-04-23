@@ -1,4 +1,7 @@
 class MembershipApplication
+  ##
+  # The main place we define steps and their acceptable parameters,
+  # with some helper methods to tell us where we are.
   class Steps
     include Singleton
 

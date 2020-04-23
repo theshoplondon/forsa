@@ -12,6 +12,11 @@ Metrics/LineLength:
 Style/Documentation:
   Exclude:
     - 'app/controllers/**/*'
+    - 'app/models/*'
+    - 'app/mailers/*'
+    - 'app/helpers/*'
+    - 'config/**/*'
+    - 'db/**/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
