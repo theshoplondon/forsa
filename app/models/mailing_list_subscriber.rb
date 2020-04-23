@@ -42,6 +42,6 @@ class MailingListSubscriber
   end
 
   def list_id
-    ENV["MAILCHIMP_LIST_ID"]
+    ENV['MAILCHIMP_LIST_ID']
   end
 end

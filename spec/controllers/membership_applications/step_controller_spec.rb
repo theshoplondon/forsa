@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe MembershipApplications::StepsController, type: :controller do
   let(:membership_application) do

@@ -72,7 +72,7 @@ feature 'self-serve API tokens' do
     # Then I should see the friendly token
     # And I should be advised to copy it now as this is the only time it will be shown
     expect(page).to have_content(
-      "Token created. Copy this now as it is the last time you will be able to see it: a_friendly_token"
+      'Token created. Copy this now as it is the last time you will be able to see it: a_friendly_token'
     )
   end
 end
