@@ -1,0 +1,15 @@
+<%
+  def rails_to_foundation_flash
+    {
+      'error' => 'alert',
+      'warning' => 'warning',
+      'notice' => 'success'
+    }
+  end
+%>
+
+<% flash.each do |type, msg| %>
+  <div data-alert class="callout <%= rails_to_foundation_flash[type] %>">
+    <%= msg %>
+  </div>
+<% end %>
