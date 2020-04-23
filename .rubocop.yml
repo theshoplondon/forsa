@@ -1,0 +1,24 @@
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 40
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - 'config/*.rb'
+    - 'config/environments/*.rb'
+    - 'db/**/*'
+    - 'bin/*'
