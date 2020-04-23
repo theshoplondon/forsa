@@ -1,0 +1,15 @@
+table.tokens {
+  width: 100%;
+
+  td {
+    max-width: 0;
+    &.created, &.last-used {
+      width: 30%;
+    }
+    &.digest {
+      width: 20%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

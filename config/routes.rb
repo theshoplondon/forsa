@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     namespace :admin do
       root to: redirect('admin/membership-applications'), as: :user_root
       resources :membership_applications, only: %i[show index], path: 'membership-applications'
+      resources :authentication_tokens, only: %i[index create destroy], path: 'authentication-tokens'
+      get 'profile', to: redirect('admin/authentication-tokens'), as: 'profile'
     end
     get '/admin', to: redirect('admin/membership-applications')
   end
