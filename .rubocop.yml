@@ -9,6 +9,11 @@ Layout/EmptyLineAfterGuardClause:
   Exclude:
     - 'bin/**/*'
 
+Layout/HashAlignment:
+  Exclude:
+    - 'app/models/membership_application.rb'
+    - 'app/models/membership_application/steps.rb'
+
 Metrics/BlockLength:
   Max: 40
   Exclude:
