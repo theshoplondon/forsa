@@ -74,6 +74,9 @@ en:
         declaration: 'This must be "%{full_name}"'
         hours_per_week: 'Take the average over the last month.'
         school_roll_number: 'Five digits followed by a letter – found on your payslip'
+        # Shouldn't be here because isn't a membership application field but are for
+        # date search/not refactoring help_for convenience
+        date_search_field: 'e.g. 2020-04-19, 2020-04-19 23:59:59'
     help_dropdown:
       membership_application:
         email:
