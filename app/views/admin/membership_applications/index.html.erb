@@ -6,6 +6,31 @@
   Signed membership applications
 </h1>
 
+<%= form_with scope: nil, method: :get, local: true do |f| %>
+  <%# We want to avoid the standard verbose naming convention view_date_range_query[from_date] %>
+  <%# (because that's terrible for hacking the API URL together with %5B for [ everywhere) %>
+  <%# So we use scope: nil to avoid the namespace. %>
+  <%# But then we put object back on afterwards, so we can get values and use form_field_errors %>
+  <% f.object = @range_query %>
+  <fieldset>
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-6">
+        <%= f.label :from_date %>
+        <%= form_field_errors(f, :from_date) %>
+        <%= help_for :date_search_field %>
+        <%= f.text_field :from_date, value: params[:from_date] %>
+      </div>
+      <div class="cell small-6">
+        <%= f.label :to_date %>
+        <%= form_field_errors(f, :to_date) %>
+        <%= help_for :date_search_field %>
+        <%= f.text_field :to_date, value: params[:to_date]  %>
+      </div>
+    </div>
+    <%= f.submit 'Search', name: nil %>
+  </fieldset>
+<% end %>
+
 <table class="hover">
   <thead>
   <tr>
@@ -26,6 +51,12 @@
 </table>
 
 <%=
-  link_to 'Get the JSON', admin_membership_applications_path(format: :json),
+  link_to(
+    'Get the JSON',
+    admin_membership_applications_path(
+      @date_range_params.merge(format: :json)
+    ),
     class: 'button float-right'
+  )
 %>
+
