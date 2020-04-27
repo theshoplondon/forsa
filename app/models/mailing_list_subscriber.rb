@@ -19,6 +19,8 @@ class MailingListSubscriber
         FNAME: member.first_name,
         LNAME: member.last_name,
         EMPNAME: member.employer,
+        EMPADDRESS: member.work_address,
+        PAYROLLNO: member.payroll_number,
         JOBTITLE: member.job_title,
         SUBRATE: subscription_rate.monthly_estimate,
         SIGNED_ON: member.updated_at.strftime('%d/%m/%Y')
