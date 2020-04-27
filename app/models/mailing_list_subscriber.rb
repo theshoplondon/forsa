@@ -14,7 +14,7 @@ class MailingListSubscriber
   def subscriber_info
     {
       email_address: member.email,
-      status: 'pending', # Required Mailchimp status
+      status: 'subscribed',
       merge_fields: {
         FNAME: member.first_name,
         LNAME: member.last_name,
