@@ -18,6 +18,8 @@ class MailingListSubscriber
       merge_fields: {
         FNAME: member.first_name,
         LNAME: member.last_name,
+        ADDRESS: member.home_address,
+        PHONE: member.phone_number,
         EMPNAME: member.employer,
         EMPADDRESS: member.work_address,
         PAYROLLNO: member.payroll_number,
