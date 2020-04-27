@@ -10,7 +10,7 @@
       <%= I18n.t("helpers.help_dropdown.membership_application.#{field}.link") %>
     </a>
 
-    <div id="<%= field %>-help-dropdown" class="dropdown-pane" data-dropdown>
+    <div id="<%= field %>-help-dropdown" class="dropdown-pane" data-dropdown data-close-on-click="true">
       <%= I18n.t("helpers.help_dropdown.membership_application.#{field}.content") %>
     </div>
   <% end %>
