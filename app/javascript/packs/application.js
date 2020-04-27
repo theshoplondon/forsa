@@ -7,12 +7,15 @@ require("@rails/ujs").start()
 require("jquery")
 require("turbolinks").start()
 
-import {Foundation} from 'foundation-sites';
+import {Foundation} from 'foundation-sites/js/foundation.core';
+import {Dropdown} from 'foundation-sites/js/foundation.dropdown';
 // IE11 support - gets use 'fetch' which uses Promise
 import 'promise-polyfill/src/polyfill'
 import 'whatwg-fetch'
 
 Foundation.addToJquery($)
+Foundation.plugin(Dropdown, 'Dropdown')
+$(document).foundation()
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
