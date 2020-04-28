@@ -73,6 +73,20 @@ feature 'A new member joins' do
     # Then I see a temporary finishing page
     expect(page).to have_content 'Application complete'
 
+    # When I fill in the extra questions
+    fill_in 'Have you previously been a member of a union? If so, which one(s)?',
+            with: 'ITGWU'
+    # including income protection
+    choose 'Not at the moment, thanks'
+
+    click_button 'Submit'
+
+    # I should see a thank you
+    expect(page).to have_content('Thanks for letting us know.')
+
+    # And I should not see the post-join questions again
+    expect(page).not_to have_content('Have you previously been a member of a union')
+
     # And we've captured what we needed to
     membership_application = MembershipApplication.last
     expect(membership_application.last_name).to eql('Memberapplication')
@@ -81,6 +95,8 @@ feature 'A new member joins' do
     expect(membership_application.pay_unit).to eql('year')
     expect(membership_application.pay_rate).to eql(BigDecimal(29250))
     expect(membership_application.current_step).to eql('declaration')
+    expect(membership_application.previous_union).to eql('ITGWU')
+    expect(membership_application.income_protection).to be false
   end
 
   scenario 'one step fails validation' do
