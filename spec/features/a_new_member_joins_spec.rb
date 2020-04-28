@@ -71,7 +71,7 @@ feature 'A new member joins' do
     end
 
     # Then I see a temporary finishing page
-    expect(page).to have_content 'Application complete'
+    expect(page).to have_content 'Welcome to Fórsa!'
 
     # When I fill in the extra questions
     fill_in 'Have you previously been a member of a union? If so, which one(s)?',
