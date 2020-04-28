@@ -58,6 +58,10 @@ en:
         hours_per_week: 'How many hours a week do you work?'
         technical_grade: 'If you work in the Civil Service what is your grade?'
         school_roll_number: 'If you work in a school or college, what is your school roll number?'
+        previous_union: 'Have you previously been a member of a union? If so, which one(s)?'
+        income_protection:
+          Would you be interested in learning more about our income protection plan
+          (which includes nine months' free cover)?
     placeholder:
       membership_application:
         email: "natalie@example.com"
@@ -74,6 +78,7 @@ en:
         declaration: 'This must be "%{full_name}"'
         hours_per_week: 'Take the average over the last month.'
         school_roll_number: 'Five digits followed by a letter – found on your payslip'
+        previous_union: 'Including Fórsa, if you’re rejoining us'
         # Shouldn't be here because isn't a membership application field but are for
         # date search/not refactoring help_for convenience
         date_search_field: 'e.g. 2020-04-19, 2020-04-19 23:59:59'

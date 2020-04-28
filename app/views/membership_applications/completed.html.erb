@@ -1,5 +1,32 @@
 <h1>Application complete - THANK YOU!</h1>
 
+<% if @membership_application.answered_post_join? %>
+  <div class="callout secondary">
+    <h3><%= t('thanks_on_completion') %></h3>
+  </div>
+<% else %>
+  <h3>Your application is complete, but we have two final questions for you:</h3>
+
+  <div class="callout secondary">
+    <%= form_with model: @membership_application do |f| %>
+      <%= f.label :previous_union %>
+      <%= help_for :previous_union %>
+      <%= f.text_field :previous_union %>
+
+      <%= f.label :income_protection %>
+      <p class="help-text">
+        <%= link_to 'More information about this', income_protection_info_path, target: '_blank' %>
+      </p>
+      <fieldset class="radio-group-vertical">
+        <%= f.collection_radio_buttons :income_protection, MembershipApplication::INCOME_PROTECTION, :first, :last do |b| %>
+          <% b.label { b.radio_button + b.text } %>
+        <% end %>
+      </fieldset>
+
+      <%= f.submit 'Submit' %>
+    <% end %>
+  </div>
+<% end %>
 
 <h2>Here’s what happens next…</h2>
 

@@ -45,7 +45,16 @@ class MembershipApplication < ApplicationRecord
 
   # Step 4: Declaration
   attribute :declaration, :string
-  validate :declaration_is_signed, if: -> { reached_step?('declaration') }
+  validate :declaration_is_signed, if: -> { reached_step?('declaration') && !completed? }
+
+  # Post-join Q's
+  validates :previous_union, presence: true, allow_blank: true
+  validates_inclusion_of :income_protection, :in => [true, false], allow_nil: true
+
+  INCOME_PROTECTION = {
+    true => 'I would like to learn more',
+    false => 'Not at the moment, thanks'
+  }.freeze
 
   # Scopes
   scope :signed, -> { where(current_step: 'declaration') }
@@ -59,7 +68,11 @@ class MembershipApplication < ApplicationRecord
   end
 
   def declaration_is_signed
-    errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
+    if declaration == full_name
+      self.completed = true
+    else
+      errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
+    end
   end
 
   def full_name
@@ -70,8 +83,12 @@ class MembershipApplication < ApplicationRecord
     Steps.instance.reached_step?(self.current_step, step)
   end
 
+  def answered_post_join?
+    answered_post_join
+  end
+
   def completed?
-    current_step == 'declaration' && persisted? && !changed?
+    completed
   end
 
   def as_json(options = {})

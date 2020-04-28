@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_094752) do
+ActiveRecord::Schema.define(version: 2020_04_27_171135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,10 @@ ActiveRecord::Schema.define(version: 2020_04_22_094752) do
     t.string "technical_grade"
     t.decimal "applicant_saw_monthly_estimate"
     t.string "department_section"
+    t.string "previous_union"
+    t.boolean "income_protection", default: true
+    t.boolean "completed", default: false, null: false
+    t.boolean "answered_post_join", default: false, null: false
   end
 
   create_table "users", force: :cascade do |t|
