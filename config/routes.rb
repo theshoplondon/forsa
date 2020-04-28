@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :steps, only: %i[show update], controller: 'membership_applications/steps'
   end
 
+  get 'income-protection-info', to: 'static#income_protection_info'
+
   resource :subscription_rate, only: :show, path: 'subscription-rate'
 
   authenticate :user do

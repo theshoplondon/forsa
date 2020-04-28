@@ -15,7 +15,7 @@
 
       <%= f.label :income_protection %>
       <p class="help-text">
-        <%= link_to 'More information about this', '#' %>
+        <%= link_to 'More information about this', income_protection_info_path, target: '_blank' %>
       </p>
       <fieldset class="radio-group-vertical">
         <%= f.collection_radio_buttons :income_protection, MembershipApplication::INCOME_PROTECTION, :first, :last do |b| %>
