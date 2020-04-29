@@ -70,6 +70,7 @@ en:
         school_roll_number: 'E.g. 12345B'
     help_text:
       membership_application:
+        date_of_birth: 'e.g. 19/08/1989'
         department_section: "Leave blank if you're not sure"
         email: 'A personal email is better'
         phone_number: 'Your mobile number is best'
