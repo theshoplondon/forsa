@@ -74,7 +74,7 @@ en:
         department_section: "Leave blank if you're not sure"
         email: 'A personal email is better'
         phone_number: 'Your mobile number is best'
-        pay_rate: 'If the amount varies, use an average.'
+        pay_rate: 'Please tell us your basic pay, before deductions. If the amount varies, use an average.'
         payroll_number: 'Found on your payslip'
         declaration: 'This must be "%{full_name}"'
         hours_per_week: 'Take the average over the last month.'

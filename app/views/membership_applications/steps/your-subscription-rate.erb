@@ -29,8 +29,9 @@
       </div>
       <%= f.hidden_field :applicant_saw_monthly_estimate %>
       <%= f.hidden_field :technical_grade %>
+
       <label>
-        Based on your salary, your monthly payment will be
+        Based on your the information provided, your estimated monthly payment will be
         €<span id="monthly-estimate-value">
           <%= @membership_application.applicant_saw_monthly_estimate %>
         </span>
@@ -39,13 +40,17 @@
       <div class="help-text">
         <p>
           This is calculated at <span id="subscription-rate">0.8</span>%
-          of your gross salary, which is what the majority of our members pay.
+          of your basic salary. This is the normal rate that the majority of our members pay.
         </p>
 
-        <p>Some branches are calculated at a different rate.
-          If your branch is one of these we will notify you in advance of any payment being processed.</p>
+        <p>
+          Some branch subscriptions are calculated at a different rate or may have additional levies.
+          If your branch is one of these, we will notify you in advance of any payment being processed.
+        </p>
 
-        <p>Your employer will apply the deduction directly to your pay and provide it to us on your behalf.</p>
+        <p>
+          Your employer will deduct the subscription directly from your pay and provide it to us on your behalf.
+        </p>
       </div>
     </section>
 
