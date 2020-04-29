@@ -57,7 +57,7 @@ en:
         declaration: 'Sign your application by typing your name'
         hours_per_week: 'How many hours a week do you work?'
         technical_grade: 'If you work in the Civil Service what is your grade?'
-        school_roll_number: 'If you work in a school or college, what is your school roll number?'
+        school_roll_number: 'If you work in a school or college, what is your school/college roll number?'
         previous_union: 'Have you previously been a member of a union? If so, which one(s)?'
         income_protection:
           Would you be interested in learning more about our income protection plan
@@ -70,10 +70,11 @@ en:
         school_roll_number: 'E.g. 12345B'
     help_text:
       membership_application:
+        date_of_birth: 'e.g. 19/08/1989'
         department_section: "Leave blank if you're not sure"
         email: 'A personal email is better'
         phone_number: 'Your mobile number is best'
-        pay_rate: 'If the amount varies, use an average.'
+        pay_rate: 'Please tell us your basic pay, before deductions. If the amount varies, use an average.'
         payroll_number: 'Found on your payslip'
         declaration: 'This must be "%{full_name}"'
         hours_per_week: 'Take the average over the last month.'
@@ -99,12 +100,11 @@ en:
         department_section:
           link: '(why is it better to provide this?)'
           content:
-            If we need to deal with an issue on your behalf, it helps us to help you
-            if we know exactly where within your organisation you work.
+            This helps us to assign you to the correct branch and to help us communicate with you appropriately.
         payroll_number:
           link: '(why do we need this?)'
           content:
-            This helps us with the administration of your union subscription fee.
+            This helps us with the administration of your union subscription.
         home_address:
           link: 'Why do we need this?'
           content:
