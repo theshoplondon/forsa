@@ -6,14 +6,14 @@
     <%= form_field_errors f, :job_title %>
     <%= f.text_field :job_title %>
 
+    <%= f.label :employer %>
+    <%= form_field_errors f, :employer %>
+    <%= f.text_field :employer %>
+
     <%= f.label :department_section %>
     <%= form_field_errors f, :department_section %>
     <%= help_for :department_section %>
     <%= f.text_field :department_section %>
-
-    <%= f.label :employer %>
-    <%= form_field_errors f, :employer %>
-    <%= f.text_field :employer %>
 
     <%= f.label :work_address %>
     <%= form_field_errors f, :work_address %>
