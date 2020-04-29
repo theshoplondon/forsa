@@ -1,10 +1,10 @@
 <%= render 'step_title', title: 'About you', step: 1, of: 5 %>
 
 <%= form_for @membership_application, url: wizard_path do |f| %>
-  <fieldset>
+  <fieldset class="grid-x">
     <%= f.label :title %>
     <%= form_field_errors f, :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'cell small-6' %>
 
     <%= f.label :first_name %>
     <%= form_field_errors f, :first_name %>
@@ -27,7 +27,7 @@
     <%= f.label :date_of_birth %>
     <%= form_field_errors f, :date_of_birth %>
     <%= help_for :date_of_birth %>
-    <%= f.text_field :date_of_birth %>
+    <%= f.text_field :date_of_birth, class: 'cell small-6' %>
 
     <%= f.submit 'Next' %>
   </fieldset>
