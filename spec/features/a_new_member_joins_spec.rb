@@ -139,4 +139,12 @@ feature 'A new member joins' do
     expect(page).to have_content 'Step 1 of 5'
     expect(page).to have_content "can't be blank"
   end
+
+  scenario 'there is no session at all and we visit a step' do
+    # When I try and visit a step
+    visit '/membership-application/steps/about-you'
+
+    # I am redirected to the front page
+    expect(page).to have_content('Get started')
+  end
 end

@@ -3,7 +3,7 @@
   Welcome to Fórsa!
 </h1>
 
-<% if @membership_application.answered_post_join? %>
+<% if @membership_application.nil? %>
   <div class="callout secondary">
     <p class="h4"><strong><%= t('thanks_on_completion') %></strong></p>
   </div>
