@@ -18,7 +18,7 @@ class MailingListSubscriber
       merge_fields: {
         FNAME: member.first_name,
         LNAME: member.last_name,
-        ADDRESS: member.home_address,
+        ADDRESS: member.home_address.gsub("\n", "<br />"), # MC requires BR to preserve line breaks
         PHONE: member.phone_number,
         EMPNAME: member.employer,
         EMPADDRESS: member.work_address,
