@@ -9,11 +9,14 @@ module MembershipApplications
 
     def show
       @membership_application = current_membership_application
+      return if redirect_when_complete(@membership_application)
+
       render_wizard
     end
 
     def update
       @membership_application = current_membership_application
+
       @membership_application.current_step = step unless @membership_application.reached_step?(step)
       @membership_application.assign_attributes(step_params)
 
@@ -30,6 +33,16 @@ module MembershipApplications
 
     def finish_wizard_path
       completed_membership_application_path
+    end
+
+    def redirect_when_complete(membership_application)
+      if membership_application.completed?
+        if membership_application.answered_post_join?
+          redirect_to root_path
+        else
+          redirect_to completed_membership_application_path
+        end
+      end
     end
 
     def step_params

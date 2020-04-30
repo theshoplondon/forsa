@@ -70,7 +70,13 @@ feature 'A new member joins' do
       click_button 'Finish'
     end
 
-    # Then I see a temporary finishing page
+    # Then I see a temporary finishing page with extra questions
+    expect(page).to have_content 'Welcome to Fórsa!'
+
+    # If I try and go to a previous step
+    visit '/membership-application/steps/about-you'
+
+    # Then I should be redirected to the post-join page
     expect(page).to have_content 'Welcome to Fórsa!'
 
     # When I fill in the extra questions
@@ -97,6 +103,12 @@ feature 'A new member joins' do
     expect(membership_application.current_step).to eql('declaration')
     expect(membership_application.previous_union).to eql('ITGWU')
     expect(membership_application.income_protection).to be false
+
+    # When I try to go to a previous step
+    visit '/membership-application/steps/about-you'
+
+    # Then I am redirected to the starting page
+    expect(page).to have_content('Get started')
   end
 
   scenario 'one step fails validation' do
