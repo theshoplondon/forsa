@@ -58,7 +58,7 @@ en:
         hours_per_week: 'How many hours a week do you work?'
         technical_grade: 'If you work in the Civil Service what is your grade?'
         school_roll_number: 'If you work in a school or college, what is your school/college roll number?'
-        previous_union: 'Have you previously been a member of a union? If so, which one(s)?'
+        previous_union: 'If you have been a member of a union, please tell us which one(s)'
         income_protection:
           Would you be interested in learning more about our income protection plan
           (which includes nine months' free cover)?
