@@ -73,6 +73,8 @@ en:
         date_of_birth: 'e.g. 19/08/1989'
         department_section: "Leave blank if you're not sure"
         email: 'A personal email is better'
+        home_address: 'include your Eircode on the last line if you know it'
+        work_address: '(include your Eircode on the last line if you know it)'
         phone_number: 'Your mobile number is best'
         pay_rate: 'Please tell us your basic pay, before deductions. If the amount varies, use an average.'
         payroll_number: 'Found on your payslip'
@@ -106,7 +108,7 @@ en:
           content:
             This helps us with the administration of your union subscription.
         home_address:
-          link: 'Why do we need this?'
+          link: '(why do we need your address?)'
           content:
             We may need to send you union documents, such as ballot papers.
         gender:
