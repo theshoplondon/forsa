@@ -26,7 +26,13 @@
     <div class="grid-container">
       <header class="grid-x align-center">
         <div class="cell medium-8 large-8">
-          <%= image_tag 'forsa_logo.svg', class: 'logo' %>
+          <% if @membership_application&.completed? %>
+            <%= link_to 'https://forsa.ie' do %>
+              <%= image_tag 'forsa_logo.svg', class: 'logo' %>
+            <% end %>
+          <% else %>
+            <%= image_tag 'forsa_logo.svg', class: 'logo' %>
+          <% end %>
         </div>
       </header>
 

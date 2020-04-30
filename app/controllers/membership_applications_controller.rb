@@ -14,12 +14,15 @@ class MembershipApplicationsController < ApplicationController
   end
 
   def completed
-    @membership_application = current_membership_application
+    @membership_application = current_membership_application if session[:membership_application_id]
   end
 
   def update
     current_membership_application.update(membership_application_params.merge(answered_post_join: true))
     redirect_to completed_membership_application_path
+
+    # The post-join questions are done; no more interaction with the application
+    session.delete(:membership_application_id)
   end
 
   private

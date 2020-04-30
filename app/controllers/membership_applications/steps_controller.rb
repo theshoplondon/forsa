@@ -7,8 +7,16 @@ module MembershipApplications
 
     steps *MembershipApplication::Steps.instance.step_names
 
+    # We only look up one thing in this controller. If
+    # it's not there, to the front page we go
+    rescue_from ActiveRecord::RecordNotFound do
+      redirect_to root_path
+    end
+
     def show
       @membership_application = current_membership_application
+      return if redirect_when_complete(@membership_application)
+
       render_wizard
     end
 
@@ -30,6 +38,10 @@ module MembershipApplications
 
     def finish_wizard_path
       completed_membership_application_path
+    end
+
+    def redirect_when_complete(membership_application)
+      redirect_to completed_membership_application_path if membership_application.completed?
     end
 
     def step_params
