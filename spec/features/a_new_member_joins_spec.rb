@@ -74,7 +74,7 @@ feature 'A new member joins' do
     expect(page).to have_content 'Welcome to Fórsa!'
 
     # When I fill in the extra questions
-    fill_in 'Have you previously been a member of a union? If so, which one(s)?',
+    fill_in 'If you have been a member of a union, please tell us which one(s)',
             with: 'ITGWU'
     # including income protection
     choose 'Not at the moment, thanks'
