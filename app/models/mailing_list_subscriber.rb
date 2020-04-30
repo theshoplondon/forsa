@@ -21,7 +21,7 @@ class MailingListSubscriber
         ADDRESS: member.home_address.gsub("\n", "<br />"), # MC requires BR to preserve line breaks
         PHONE: member.phone_number,
         EMPNAME: member.employer,
-        EMPADDRESS: member.work_address,
+        EMPADDRESS: member.work_address.gsub("\n", "<br />"), # MC requires BR to preserve line breaks,
         PAYROLLNO: member.payroll_number,
         JOBTITLE: member.job_title,
         SUBRATE: subscription_rate.monthly_estimate,
