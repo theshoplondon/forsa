@@ -58,6 +58,12 @@ class MembershipApplication < ApplicationRecord
 
   # Scopes
   scope :signed, -> { where(current_step: 'declaration') }
+  scope :incomplete, -> { where(completed: false) }
+  scope :created_older, -> (date) { where('created_at < ?', date) }
+
+  scope :dropped_cart, -> {
+    incomplete.created_older(1.day.ago).where(dropped_cart_processed_at: nil)
+  }
 
   def init
     self.technical_grade ||= TECHNICAL_GRADES.keys.last # N/A or unsure
