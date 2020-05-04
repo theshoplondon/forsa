@@ -1,4 +1,6 @@
 class MembershipApplication < ApplicationRecord
+  has_secure_token :dropped_cart_resumption_token
+
   after_initialize :init
 
   validates :first_name, presence: true
