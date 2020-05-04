@@ -53,7 +53,7 @@ en:
         department_section: 'Your department or section'
         employer: 'Your employer'
         work_address: 'Your workplace address'
-        payroll_number: 'Your payroll number'
+        payroll_number: 'Your payroll/personnel number'
         pay_rate: 'What are you paid?'
         declaration: 'Sign your application by typing your name'
         hours_per_week: 'How many hours a week do you work?'
