@@ -25,6 +25,12 @@ class MembershipApplicationsController < ApplicationController
     session.delete(:membership_application_id)
   end
 
+  def resume
+    session[:membership_application_id] =
+      MembershipApplication.find_by!(dropped_cart_resumption_token: params[:token]).id
+    redirect_to(membership_application_step_path('about-you'))
+  end
+
   private
 
   def current_membership_application

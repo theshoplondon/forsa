@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resource :membership_application, only: %i[create show update], path: 'membership-application' do
     get 'completed'
+    get 'resume/:token', action: :resume
     resources :steps, only: %i[show update], controller: 'membership_applications/steps'
   end
 
