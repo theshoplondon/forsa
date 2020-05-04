@@ -14,7 +14,7 @@ RSpec.describe MembershipApplication::Steps do
       aggregate_failures do
         expect(steps.index_of('about-you')).to eql(0)
         expect(steps.index_of('contact-details')).to eql(1)
-        expect(steps.index_of('non-existent')).to be_nil
+        expect { steps.index_of('non-existent') }.to raise_error(KeyError)
       end
     end
   end

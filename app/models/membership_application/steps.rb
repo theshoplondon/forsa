@@ -20,7 +20,7 @@ class MembershipApplication
 
     def index_of(step)
       @index_of ||= step_names.each_with_index.map { |name, index| [name, index] }.to_h
-      @index_of[step]
+      @index_of.fetch(step)
     end
 
     def reached_step?(application_step, step)
