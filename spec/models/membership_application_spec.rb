@@ -118,6 +118,21 @@ RSpec.describe MembershipApplication, type: :model do
 
       it { is_expected.to be_valid }
     end
+
+    describe 'the token before and after signature' do
+      let(:application) { create :membership_application, :step_your_subscription_rate }
+
+      before do
+        expect(application.dropped_cart_resumption_token).to be_present
+        application.current_step = 'declaration'
+        application.declaration = "#{application.first_name} #{application.last_name}"
+        application.save!
+      end
+
+      it 'nils itself' do
+        expect(application.dropped_cart_resumption_token).to be_nil
+      end
+    end
   end
 
   describe '#completed?' do

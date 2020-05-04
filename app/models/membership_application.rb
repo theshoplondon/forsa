@@ -78,6 +78,7 @@ class MembershipApplication < ApplicationRecord
   def declaration_is_signed
     if declaration == full_name
       self.completed = true
+      self.dropped_cart_resumption_token = nil
     else
       errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
     end
