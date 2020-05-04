@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_171135) do
+ActiveRecord::Schema.define(version: 2020_05_01_122905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 2020_04_27_171135) do
     t.boolean "income_protection", default: true
     t.boolean "completed", default: false, null: false
     t.boolean "answered_post_join", default: false, null: false
+    t.datetime "dropped_cart_processed_at"
+    t.string "dropped_cart_mailchimp_status"
+    t.string "dropped_cart_resumption_token"
+    t.index ["dropped_cart_resumption_token"], name: "index_membership_applications_on_dropped_cart_resumption_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|

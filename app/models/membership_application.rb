@@ -1,4 +1,6 @@
 class MembershipApplication < ApplicationRecord
+  has_secure_token :dropped_cart_resumption_token
+
   after_initialize :init
 
   validates :first_name, presence: true
@@ -58,6 +60,12 @@ class MembershipApplication < ApplicationRecord
 
   # Scopes
   scope :signed, -> { where(current_step: 'declaration') }
+  scope :incomplete, -> { where(completed: false) }
+  scope :created_older, -> (date) { where('created_at < ?', date) }
+
+  scope :dropped_cart, -> {
+    incomplete.created_older(1.day.ago).where(dropped_cart_processed_at: nil)
+  }
 
   def init
     self.technical_grade ||= TECHNICAL_GRADES.keys.last # N/A or unsure
@@ -70,6 +78,7 @@ class MembershipApplication < ApplicationRecord
   def declaration_is_signed
     if declaration == full_name
       self.completed = true
+      self.dropped_cart_resumption_token = nil
     else
       errors[:declaration] << %(must be "#{full_name}") unless declaration == full_name
     end

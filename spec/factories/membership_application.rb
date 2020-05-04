@@ -4,6 +4,16 @@ FactoryBot.define do
 
     first_name { 'Natalie' }
 
+    trait(:abandoned) do
+      step_about_you
+
+      created_at { 25.hours.ago }
+    end
+
+    trait(:bad_email) do
+      email { 'we_dont_like@mailinator.com' } # Would 400 on Mailchimp
+    end
+
     trait(:step_new) {}
 
     ##

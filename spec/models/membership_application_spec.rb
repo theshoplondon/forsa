@@ -11,6 +11,18 @@ RSpec.describe MembershipApplication, type: :model do
     it 'only validates first name and email' do
       expect(application).to be_valid
     end
+
+    it 'still has an empty resumption token' do
+      expect(application.dropped_cart_resumption_token).to be_nil
+    end
+
+    context 'it is saved' do
+      before { application.save! }
+
+      it 'creates a 24-character base58 resumption token' do
+        expect(application.dropped_cart_resumption_token).to match(/[0-9a-zA-Z]{24}/)
+      end
+    end
   end
 
   context 'the current_step is the first one, about-you' do
@@ -105,6 +117,21 @@ RSpec.describe MembershipApplication, type: :model do
       before { application.declaration = 'Natalie Zurbman' }
 
       it { is_expected.to be_valid }
+    end
+
+    describe 'the token before and after signature' do
+      let(:application) { create :membership_application, :step_your_subscription_rate }
+
+      before do
+        expect(application.dropped_cart_resumption_token).to be_present
+        application.current_step = 'declaration'
+        application.declaration = "#{application.first_name} #{application.last_name}"
+        application.save!
+      end
+
+      it 'nils itself' do
+        expect(application.dropped_cart_resumption_token).to be_nil
+      end
     end
   end
 

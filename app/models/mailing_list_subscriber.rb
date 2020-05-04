@@ -1,14 +1,6 @@
-class MailingListSubscriber
-  attr_reader :member
-
-  def initialize(member)
-    @member = member
-  end
-
-  def subscribe!
-    mail_chimp.lists(list_id).members.create(body: subscriber_info)
-  rescue Gibbon::MailChimpError => error
-    raise unless error.title == 'Member Exists'
+class MailingListSubscriber < MailingListSubscriberBase
+  def list_id
+    ENV['MAILCHIMP_LIST_ID']
   end
 
   def subscriber_info
@@ -37,15 +29,5 @@ class MailingListSubscriber
       hours_per_week: member.hours_per_week,
       clerical_rate: member.clerical?
     )
-  end
-
-  private
-
-  def mail_chimp
-    @mail_chimp ||= Gibbon::Request.new
-  end
-
-  def list_id
-    ENV['MAILCHIMP_LIST_ID']
   end
 end
