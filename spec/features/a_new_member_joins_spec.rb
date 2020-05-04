@@ -52,7 +52,7 @@ feature 'A new member joins' do
       Trim
       C15 NX36
     TXT
-    fill_in 'Your payroll number', with: 'OE1234567'
+    fill_in 'Your payroll/personnel number', with: 'OE1234567'
 
     click_button 'Next'
 
