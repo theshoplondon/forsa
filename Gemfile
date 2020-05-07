@@ -19,6 +19,7 @@ gem 'gibbon'
 gem 'sucker_punch'
 
 gem 'devise'
+gem 'kaminari'
 gem 'tiddle'
 gem 'rollbar'
 
