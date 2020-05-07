@@ -101,7 +101,14 @@ class MembershipApplication < ApplicationRecord
   end
 
   def as_json(options = {})
-    exclude = %w[declaration current_step]
-    super(options).except(*exclude)
+    super(options).except(*MembershipApplication.exclude_fields)
+  end
+
+  def self.csv_header
+    MembershipApplication.new.attributes.keys - exclude_fields
+  end
+
+  def self.exclude_fields
+    %w[declaration current_step dropped_cart_resumption_token]
   end
 end
