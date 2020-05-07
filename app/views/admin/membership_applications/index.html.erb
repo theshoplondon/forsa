@@ -50,13 +50,24 @@
   <% end %>
 </table>
 
-<%=
-  link_to(
-    'Get the JSON',
-    admin_membership_applications_path(
-      @date_range_params.merge(format: :json)
-    ),
-    class: 'button float-right'
-  )
-%>
+<fieldset class="download-buttons">
+  <%=
+    link_to(
+      'Get the CSV',
+      admin_membership_applications_path(
+        @date_range_params.merge(format: :csv)
+      ),
+      class: 'button float-right'
+    )
+  %>
 
+  <%=
+    link_to(
+      'Get the JSON',
+      admin_membership_applications_path(
+        @date_range_params.merge(format: :json)
+      ),
+      class: 'button float-right'
+    )
+  %>
+</fieldset>
