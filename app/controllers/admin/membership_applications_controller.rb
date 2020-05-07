@@ -11,7 +11,10 @@ class Admin::MembershipApplicationsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render }
+      format.html do
+        @membership_applications = @membership_applications.page params[:page]
+        render
+      end
       format.json do
         render status: 400, json: { errors: @range_query.errors } and return unless @range_query.valid?
         render json: @membership_applications
