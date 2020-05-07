@@ -87,7 +87,7 @@ RSpec.describe '/admin/membership-applications', type: :request do
       create_list :membership_application, 2, :step_about_you, employer: 'Today', updated_at: new_date
     end
 
-    subject(:rows) { puts response.body; CSV.parse(response.body, headers: true) }
+    subject(:rows) { CSV.parse(response.body, headers: true) }
 
     before do
       get '/admin/membership-applications', params: params, headers: headers.merge(make_valid_api_credentials)
