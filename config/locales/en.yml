@@ -32,6 +32,7 @@
 en:
   main_title: "Join Fórsa"
   site_email: 'applicationsinfo@forsa.ie'
+  site_tel: '01 817 1500'
 
   activerecord:
     authentication_tokens:
