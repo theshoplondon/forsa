@@ -14,4 +14,12 @@ module ApplicationHelper
   def help_for(field, interpolations = {})
     render 'shared/help_for_field', field: field, interpolations: interpolations
   end
+
+  def site_email
+    link_to t('site_email'), "mailto:#{t('site_email')}"
+  end
+
+  def site_tel
+    link_to t('site_tel'), "tel:#{t('site_tel')}"
+  end
 end
