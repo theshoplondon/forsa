@@ -15,7 +15,7 @@
     <%= f.label :home_address %>
     <%= help_for :home_address %>
     <%= form_field_errors f, :home_address %>
-    <%= f.text_area :home_address, rows: 5 %>
+    <%= f.text_area :home_address, rows: 5, class: 'address-autocomplete' %>
 
     <%= f.submit 'Next' %>
   </fieldset>

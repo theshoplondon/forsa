@@ -7,8 +7,9 @@ require("@rails/ujs").start()
 require("jquery")
 require("turbolinks").start()
 
-import {Foundation} from 'foundation-sites/js/foundation.core';
-import {Dropdown} from 'foundation-sites/js/foundation.dropdown';
+import {Foundation} from 'foundation-sites/js/foundation.core'
+import {Dropdown} from 'foundation-sites/js/foundation.dropdown'
+import {AddressAutocomplete} from "packs/address_autocomplete"
 // IE11 support - gets use 'fetch' which uses Promise
 import 'promise-polyfill/src/polyfill'
 import 'whatwg-fetch'
@@ -26,6 +27,7 @@ $(document).foundation()
 
 $(document).on('turbolinks:load', function() {
   $(document).foundation()
+  AddressAutocomplete.setup('.address-autocomplete')
 })
 
 require('packs/your_subscription_rate')
