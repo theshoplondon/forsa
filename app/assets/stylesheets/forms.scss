@@ -6,6 +6,10 @@ $forsa-button-label-font-size: 1.1rem;
   fieldset {
     margin-bottom: $fieldset-padding;
 
+    &.fieldset-address {
+      margin-bottom: 2rem;
+    }
+
     &.download-buttons {
       a {
         margin-left: $global-margin;
