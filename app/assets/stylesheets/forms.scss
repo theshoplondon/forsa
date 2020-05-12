@@ -8,6 +8,14 @@ $forsa-button-label-font-size: 1.1rem;
 
     &.fieldset-address {
       margin-bottom: 2rem;
+
+      .pac-target-input {
+        margin-bottom: 0;
+      }
+
+      textarea {
+        margin-top: $global-margin;
+      }
     }
 
     &.download-buttons {
