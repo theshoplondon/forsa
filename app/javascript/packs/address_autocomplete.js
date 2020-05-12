@@ -20,7 +20,6 @@ class AddressAutocomplete {
     input.addEventListener('keydown', function(event){
       if(event.keyCode === 13) {
         event.preventDefault()
-        input.nextSibling.focus()
         return false
       }
     })
@@ -49,6 +48,7 @@ class AddressAutocomplete {
     this.textarea.value = this.input.value.replace(/, /g, ",\r\n")
     this.textarea.style.display = 'block'
     this.input.value = null
+    this.textarea.focus()
   }
 
   static create(textarea) {
