@@ -1,25 +1,54 @@
+/*
+  From a given textarea, insert an input[type=text] before it and
+  wire it up to a Google places autocomplete to search for address_components
+  only.
+ */
 class AddressAutocomplete {
   constructor(textarea) {
     this.textarea = textarea
   }
 
+  get input() {
+    if(this._input) {
+      return this._input
+    }
+
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    this.textarea.parentNode.insertBefore(input, this.textarea);
+
+    input.addEventListener('keydown', function(event){
+      if(event.keyCode === 13) {
+        event.preventDefault()
+        input.nextSibling.focus()
+        return false
+      }
+    })
+
+    this._input = input
+    return input
+  }
+
   attachPlacesAutocomplete() {
     this.autocomplete = new google.maps.places.Autocomplete(
-      this.textarea,
+      this.input,
       {
-        types: ['geocode'], // don't use anything else on a textarea, will break with invalid HTMLInput
+        types: ['geocode'],
         componentRestrictions: { country: 'ie' }
       }
     )
+    this.autocomplete.setFields(['address_components'])
     google.maps.event.addListener(this.autocomplete, 'place_changed', this.placeChanged.bind(this));
-  }
 
-  reformatAddress() {
-    this.textarea.value = this.textarea.value.replace(/, /g, ",\r\n")
+    if(!this.textarea.value) { // Only hide when the value is blank so as not to hide real data
+      this.textarea.style.display = 'none'
+    }
   }
 
   placeChanged() {
-    this.reformatAddress()
+    this.textarea.value = this.input.value.replace(/, /g, ",\r\n")
+    this.textarea.style.display = 'block'
+    this.input.value = null
   }
 
   static create(textarea) {
