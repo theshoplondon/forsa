@@ -12,10 +12,11 @@
     <%= form_field_errors f, :phone_number %>
     <%= f.text_field :phone_number %>
 
-    <%= f.label :home_address %>
-    <%= help_for :home_address %>
-    <%= form_field_errors f, :home_address %>
-    <%= f.text_area :home_address, rows: 5 %>
+    <fieldset class="fieldset-address">
+      <%= f.label :home_address %>
+      <%= form_field_errors f, :home_address %>
+      <%= f.text_area :home_address, rows: 5, class: 'address-autocomplete' %>
+    </fieldset>
 
     <%= f.submit 'Next' %>
   </fieldset>
