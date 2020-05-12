@@ -18,7 +18,7 @@
     <%= f.label :work_address %>
     <%= form_field_errors f, :work_address %>
     <%= help_for :work_address %>
-    <%= f.text_area :work_address, rows: 5 %>
+    <%= f.text_area :work_address, rows: 5, class: 'address-autocomplete', data: { type: 'establishment' } %>
 
     <%= f.label :payroll_number %>
     <%= form_field_errors f, :payroll_number %>

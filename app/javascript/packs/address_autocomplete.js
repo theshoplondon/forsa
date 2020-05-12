@@ -1,7 +1,11 @@
 /*
   From a given textarea, insert an input[type=text] before it and
   wire it up to a Google places autocomplete to search for address_components
-  only.
+  in country 'ie' only.
+
+  Looks for a data-type attr which is passed directly to
+  google.maps.places.Autocomplete types. Used to target only establishments
+  when searching workplace address.
  */
 class AddressAutocomplete {
   constructor(textarea) {
@@ -32,7 +36,7 @@ class AddressAutocomplete {
     this.autocomplete = new google.maps.places.Autocomplete(
       this.input,
       {
-        types: ['geocode'],
+        types: this.types,
         componentRestrictions: { country: 'ie' }
       }
     )
@@ -42,6 +46,14 @@ class AddressAutocomplete {
     if(!this.textarea.value) { // Only hide when the value is blank so as not to hide real data
       this.textarea.style.display = 'none'
     }
+  }
+
+  get types() {
+    if(this.textarea.dataset.type) {
+      return this.textarea.dataset.type
+    }
+
+    return ['geocode'];
   }
 
   placeChanged() {
