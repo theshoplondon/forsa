@@ -23,7 +23,7 @@ class AddressAutocomplete {
     }
 
     const _manualLink = document.createElement('a')
-    const textNode = document.createTextNode('Enter address manually');
+    const textNode = document.createTextNode('Or enter address manually');
     _manualLink.appendChild(textNode)
     _manualLink.addEventListener('click', this.manualLinkClicked.bind(this))
 
