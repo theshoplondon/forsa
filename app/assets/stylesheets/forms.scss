@@ -60,7 +60,7 @@ input {
 }
 
 .field_with_errors {
-  input,
+  input:not(.pac-target-input),
   textarea,
   label.block-label {
     border-color: $alert-color;
