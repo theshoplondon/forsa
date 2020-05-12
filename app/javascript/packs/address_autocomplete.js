@@ -79,7 +79,7 @@ class AddressAutocomplete {
 
   get types() {
     if(this.textarea.dataset.type) {
-      return this.textarea.dataset.type
+      return this.textarea.dataset.type.split(' ')
     }
 
     return ['geocode'];
