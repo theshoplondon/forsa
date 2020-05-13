@@ -1,7 +1,7 @@
 <%= render 'step_title', title: 'About you', step: 1, of: 5 %>
 
 <%= form_for @membership_application, url: wizard_path do |f| %>
-  <fieldset class="grid-x">
+  <fieldset>
     <%= f.label :title %>
     <%= form_field_errors f, :title %>
     <%= f.text_field :title, class: 'cell small-6' %>
