@@ -6,6 +6,7 @@
 require("@rails/ujs").start()
 require("jquery")
 require("turbolinks").start()
+require("packs/polyfills/NodeList.forEach")
 
 import {Foundation} from 'foundation-sites/js/foundation.core'
 import {Dropdown} from 'foundation-sites/js/foundation.dropdown'
