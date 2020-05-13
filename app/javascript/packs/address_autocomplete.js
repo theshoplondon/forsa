@@ -15,6 +15,7 @@ class AddressAutocomplete {
   manualLinkClicked() {
     this.textarea.style.display = 'block'
     this.manualLink.style.display = 'none'
+    this.textarea.focus()
   }
 
   get manualLink() {
