@@ -7,7 +7,7 @@ feature 'A new member joins' do
   scenario 'everything goes to plan' do
     # When I go to the front page
     visit '/'
-    expect(page).to have_content('Join Today')
+    expect(page).to have_content('Join today')
 
     # And I fill in the details
     fill_in 'First name', with: 'Mick'
@@ -114,7 +114,7 @@ feature 'A new member joins' do
   scenario 'one step fails validation' do
     # When I go to the front page
     visit '/'
-    expect(page).to have_content('Join Today')
+    expect(page).to have_content('Join today')
 
     # And I fill in the details
     fill_in 'First name', with: 'Mick'
