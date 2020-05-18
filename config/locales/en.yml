@@ -75,8 +75,8 @@ en:
         date_of_birth: 'e.g. 19/08/1989'
         department_section: "Leave blank if you're not sure"
         email: 'A personal email is better'
-        home_address: 'include your Eircode on the last line if you know it'
-        work_address: '(include your Eircode on the last line if you know it)'
+        home_address: 'include your Eircode, if known'
+        work_address: 'include your Eircode, if known'
         phone_number: 'Your mobile number is best'
         pay_rate: 'Please tell us your basic pay, before deductions. If the amount varies, use an average.'
         payroll_number: 'Found on your payslip'
@@ -98,9 +98,8 @@ en:
         phone_number:
           link: '(why?)'
           content:
-            We want to be able to communicate with you effectively, inside and outside of your workplace.
-            The majority of our communication will be by email but there may be times when we need to call you,
-            and a mobile number is best.
+            The majority of our communication will be by email, but there may be times when we need to contact
+            you by phone, so a mobile number is best.
         department_section:
           link: '(why is it better to provide this?)'
           content:
@@ -112,7 +111,7 @@ en:
         home_address:
           link: '(why do we need your address?)'
           content:
-            We may need to send you union documents, such as ballot papers.
+            In case we need to send you union information, such as ballots.
         gender:
           link: 'Why do we ask?'
           content:
