@@ -62,8 +62,8 @@ en:
         school_roll_number: 'If you work in a school or college, what is your school/college roll number?'
         previous_union: 'If you have been a member of a union, please tell us which one(s)'
         income_protection:
-          Would you be interested in learning more about our income protection plan
-          (which includes nine months' free cover)?
+          Would you be interested in learning more about an income protection plan
+          provided by external financial institutions negotiated by Fórsa? (which includes nine months' free cover)?
     placeholder:
       membership_application:
         email: "natalie@example.com"
@@ -83,7 +83,7 @@ en:
         declaration: 'This must be "%{full_name}"'
         hours_per_week: 'Take the average over the last month.'
         school_roll_number: 'Five digits followed by a letter – found on your payslip'
-        previous_union: 'Including Fórsa, if you’re rejoining us'
+        previous_union: 'Including Fórsa, and why you left, if you’re rejoining us'
         # Shouldn't be here because isn't a membership application field but are for
         # date search/not refactoring help_for convenience
         date_search_field: 'e.g. 2020-04-19, 2020-04-19 23:59:59'
@@ -122,3 +122,9 @@ en:
           content:
             We need your roll number to identify your work location
             as defined by the Department of Education and Skills.
+        previous_union:
+          link: '(why?)'
+          content:
+            Under the Irish Congress of Trade Unions’ rules, we must ask this.
+            We also notify your branch if you are re-joining.
+
