@@ -50,7 +50,7 @@ en:
     label:
       membership_application:
         email: "Email address"
-        job_title: 'Your job title'
+        job_title: 'Your job title or grade'
         department_section: 'Your department or section'
         employer: 'Your employer'
         work_address: 'Your workplace address'
@@ -103,7 +103,8 @@ en:
         department_section:
           link: '(why is it better to provide this?)'
           content:
-            This helps us to assign you to the correct branch and to help us communicate with you appropriately.
+            This helps us to assign you to the correct Fórsa branch and ensure you receive
+            the most relevant information.
         payroll_number:
           link: '(why do we need this?)'
           content:
