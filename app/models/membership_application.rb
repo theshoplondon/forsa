@@ -76,7 +76,7 @@ class MembershipApplication < ApplicationRecord
   end
 
   def declaration_is_signed
-    if declaration == full_name
+    if normalize(declaration) == normalize(full_name)
       self.completed = true
       self.dropped_cart_resumption_token = nil
     else
@@ -110,5 +110,12 @@ class MembershipApplication < ApplicationRecord
 
   def self.exclude_fields
     %w[declaration current_step dropped_cart_resumption_token]
+  end
+
+  private
+
+  # Normalise a string for comparison
+  def normalize(string)
+    string&.squish&.downcase
   end
 end

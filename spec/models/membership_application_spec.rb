@@ -119,6 +119,30 @@ RSpec.describe MembershipApplication, type: :model do
       it { is_expected.to be_valid }
     end
 
+    context 'the declaration is provided but not case-sensitive' do
+      before { application.declaration = 'natalie Zurbman' }
+
+      it { is_expected.to be_valid }
+    end
+
+    context 'the declaration is provided but with trailing spaces' do
+      before { application.declaration = 'Natalie Zurbman ' }
+
+      it { is_expected.to be_valid }
+    end
+
+    context 'the declaration is provided but not case-sensitive and with spaces' do
+      before { application.declaration = 'Natalie zurbman ' }
+
+      it { is_expected.to be_valid }
+    end
+
+    context 'the declaration is provided but not case-sensitive and with spaces all over' do
+      before { application.declaration = ' Natalie   zurbman ' }
+
+      it { is_expected.to be_valid }
+    end
+
     describe 'the token before and after signature' do
       let(:application) { create :membership_application, :step_your_subscription_rate }
 
