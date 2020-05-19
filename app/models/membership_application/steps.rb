@@ -14,6 +14,8 @@ class MembershipApplication
       'declaration'            => [:declaration]
     }]
 
+    FILTER_PARAMS = PARAMS.values.reduce(&:+).flatten.freeze
+
     def step_names
       PARAMS.keys
     end
