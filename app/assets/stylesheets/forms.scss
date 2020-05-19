@@ -50,6 +50,7 @@ input {
 
 .input-euro {
   position: relative;
+  display: block; // necessary for FF to render far down enough
   &:before {
     position: absolute;
     z-index: 1;
