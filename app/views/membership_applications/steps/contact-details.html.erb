@@ -2,8 +2,8 @@
 
 <%= form_for @membership_application, url: wizard_path do |f| %>
   <fieldset>
-    <%= f.label :email %>
-    <%= help_for :email %>
+    <%= f.label :confirm_email %>
+    <%= help_for :confirm_email %>
     <%= form_field_errors f, :email %>
     <%= f.text_field :email %>
 
