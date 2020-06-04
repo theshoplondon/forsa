@@ -50,6 +50,7 @@ en:
     label:
       membership_application:
         email: "Email address"
+        confirm_email: "Make sure your email is right"
         job_title: 'Your job title or grade'
         department_section: 'Your department or section'
         employer: 'Your employer'
@@ -75,6 +76,7 @@ en:
         date_of_birth: 'e.g. 19/08/1989'
         department_section: "Leave blank if you're not sure"
         email: 'A personal email is better'
+        confirm_email: 'If this email address looks wrong, you can change it now'
         home_address: 'include your Eircode, if known'
         work_address: 'include your Eircode, if known'
         phone_number: 'Your mobile number is best'
